@@ -2,25 +2,38 @@ const grid = document.querySelector('#news-grid');
 const meta = document.querySelector('#feed-meta');
 const fallback = document.querySelector('#feed-fallback');
 const refreshButton = document.querySelector('#refresh-button');
-document.querySelector('#year').textContent = new Date().getFullYear();
+const year = document.querySelector('#year');
+
+if (year) year.textContent = new Date().getFullYear();
 
 const NEWS_LIMIT = 9;
-const REQUEST_TIMEOUT_MS = 12000;
+const REQUEST_TIMEOUT_MS = 10000;
+const NEWS_ENDPOINTS = ['/api/news', '/.netlify/functions/news'];
 
 function escapeHTML(value = '') {
-  return String(value).replace(/[&<>'"]/g, char => ({'&':'&amp;','<':'&lt;','>':'&gt;',"'":'&#39;','"':'&quot;'}[char]));
+  return String(value).replace(/[&<>'"]/g, char => ({
+    '&': '&amp;',
+    '<': '&lt;',
+    '>': '&gt;',
+    "'": '&#39;',
+    '"': '&quot;'
+  }[char]));
 }
 
 function relativeTime(dateString) {
   const date = new Date(dateString);
   if (Number.isNaN(date.getTime())) return 'Recent';
+
   const diff = Math.max(0, Date.now() - date.getTime());
   const mins = Math.floor(diff / 60000);
   if (mins < 60) return mins <= 1 ? 'Just now' : `${mins} min ago`;
+
   const hours = Math.floor(mins / 60);
   if (hours < 24) return `${hours} hr${hours === 1 ? '' : 's'} ago`;
+
   const days = Math.floor(hours / 24);
   if (days < 7) return `${days} day${days === 1 ? '' : 's'} ago`;
+
   return date.toLocaleDateString(undefined, {
     month: 'short',
     day: 'numeric',
@@ -29,7 +42,10 @@ function relativeTime(dateString) {
 }
 
 function renderSkeletons() {
-  grid.innerHTML = Array.from({ length: NEWS_LIMIT }, () => '<div class="skeleton" aria-hidden="true"></div>').join('');
+  grid.innerHTML = Array.from(
+    { length: NEWS_LIMIT },
+    () => '<div class="skeleton" aria-hidden="true"></div>'
+  ).join('');
 }
 
 function newsTimestamp(item) {
@@ -43,6 +59,7 @@ function sortNewsNewestFirst(items) {
 
 function renderNews(items) {
   const sortedItems = sortNewsNewestFirst(items).slice(0, NEWS_LIMIT);
+
   grid.innerHTML = sortedItems.map(item => `
     <a class="news-card" href="${escapeHTML(item.link)}" target="_blank" rel="noopener noreferrer">
       <span class="source">${escapeHTML(item.source || 'News')}</span>
@@ -53,12 +70,14 @@ function renderNews(items) {
       </div>
     </a>
   `).join('');
+
   return sortedItems.length;
 }
 
 async function fetchWithTimeout(url, options = {}, timeoutMs = REQUEST_TIMEOUT_MS) {
   const controller = new AbortController();
   const timeoutId = setTimeout(() => controller.abort(), timeoutMs);
+
   try {
     return await fetch(url, { ...options, signal: controller.signal });
   } finally {
@@ -66,41 +85,65 @@ async function fetchWithTimeout(url, options = {}, timeoutMs = REQUEST_TIMEOUT_M
   }
 }
 
+async function fetchNewsJSON({ force = false } = {}) {
+  let lastError = null;
+
+  for (const endpoint of NEWS_ENDPOINTS) {
+    try {
+      const separator = endpoint.includes('?') ? '&' : '?';
+      const url = force ? `${endpoint}${separator}t=${Date.now()}` : endpoint;
+      const response = await fetchWithTimeout(url, {
+        headers: { accept: 'application/json' },
+        cache: force ? 'no-store' : 'default'
+      });
+
+      if (!response.ok) throw new Error(`Feed returned ${response.status}`);
+
+      const data = await response.json();
+      if (!Array.isArray(data.items) || data.items.length === 0) {
+        throw new Error('No news items');
+      }
+
+      return data;
+    } catch (error) {
+      lastError = error;
+      console.warn(`News endpoint failed: ${endpoint}`, error);
+    }
+  }
+
+  throw lastError || new Error('News feed unavailable');
+}
+
 async function loadNews({ force = false } = {}) {
-  refreshButton.disabled = true;
+  if (refreshButton) refreshButton.disabled = true;
   grid.setAttribute('aria-busy', 'true');
   fallback.hidden = true;
-  if (!grid.children.length || force) renderSkeletons();
+  renderSkeletons();
   meta.textContent = 'Fetching the latest headlines…';
 
   try {
-    const response = await fetchWithTimeout(
-      `/api/news${force ? `?t=${Date.now()}` : ''}`,
-      { headers: { accept: 'application/json' }, cache: force ? 'no-store' : 'default' }
-    );
-    if (!response.ok) throw new Error(`Feed returned ${response.status}`);
-
-    const data = await response.json();
-    if (!Array.isArray(data.items) || !data.items.length) throw new Error('No news items');
-
+    const data = await fetchNewsJSON({ force });
     const shown = renderNews(data.items);
     const updated = new Date(data.fetchedAt);
     const checked = Number.isNaN(updated.getTime()) ? 'recently' : updated.toLocaleString();
     meta.textContent = `Showing ${shown} most recent headlines · Feed checked ${checked}`;
   } catch (error) {
-    console.error(error);
+    console.error('Unable to load news feed', error);
     grid.innerHTML = '';
     fallback.hidden = false;
     meta.textContent = error?.name === 'AbortError'
       ? 'The news feed took too long to respond.'
       : 'The automatic feed could not be loaded.';
   } finally {
-    refreshButton.disabled = false;
+    if (refreshButton) refreshButton.disabled = false;
     grid.setAttribute('aria-busy', 'false');
   }
 }
 
-refreshButton.addEventListener('click', () => loadNews({ force: true }));
+if (refreshButton) {
+  refreshButton.addEventListener('click', () => loadNews({ force: true }));
+}
+
 renderSkeletons();
 loadNews();
-setInterval(loadNews, 10 * 60 * 1000);
+setInterval(() => loadNews(), 10 * 60 * 1000);

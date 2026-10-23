@@ -2,6 +2,12 @@
   publish = "."
   functions = "netlify/functions"
 
+[[redirects]]
+  from = "/api/news"
+  to = "/.netlify/functions/news"
+  status = 200
+  force = true
+
 [[headers]]
   for = "/*"
   [headers.values]
@@ -12,9 +18,9 @@
 [[headers]]
   for = "/styles.css"
   [headers.values]
-    Cache-Control = "public, max-age=86400"
+    Cache-Control = "no-cache"
 
 [[headers]]
   for = "/app.js"
   [headers.values]
-    Cache-Control = "public, max-age=3600"
+    Cache-Control = "no-cache"

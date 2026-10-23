@@ -148,7 +148,7 @@ footer p { color: #aebbd6; margin: 7px 0 0; font-size: 13px; }
 }
 
 /* 2026-10 simplified links + news reliability update */
-#resources, #news, #social, #about { scroll-margin-top: 96px; }
+#resources, #news, #about { scroll-margin-top: 96px; }
 .resources-section { padding-top: 92px; }
 .simple-link-list {
   max-width: 760px;
@@ -181,8 +181,32 @@ footer p { color: #aebbd6; margin: 7px 0 0; font-size: 13px; }
   padding-top: 26px;
 }
 @media (max-width: 560px) {
-  #resources, #news, #social, #about { scroll-margin-top: 80px; }
+  #resources, #news, #about { scroll-margin-top: 80px; }
   .resources-section { padding-top: 72px; }
   .simple-link-list a,
   .simple-link-label { padding: 15px 0; }
+}
+
+/* 2026-10-23 larger, heavier link lists */
+.simple-link-list {
+  max-width: 860px;
+}
+.simple-link-list a,
+.simple-link-label {
+  padding: 20px 0;
+  font-size: clamp(26px, 3vw, 36px);
+  line-height: 1.15;
+  font-weight: 900;
+  letter-spacing: -0.03em;
+}
+.simple-link-label {
+  color: var(--ink);
+  padding-top: 30px;
+}
+@media (max-width: 560px) {
+  .simple-link-list a,
+  .simple-link-label {
+    padding: 17px 0;
+    font-size: clamp(23px, 7vw, 30px);
+  }
 }
