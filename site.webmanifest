@@ -1,0 +1,9 @@
+{
+  "name": "Eala Fan Hub",
+  "short_name": "Eala Hub",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#0038A8",
+  "description": "Independent Alex Eala fan news hub."
+}

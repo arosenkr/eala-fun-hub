@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#0038A8" />
+  <meta name="description" content="Eala Fan Hub — an independent, mobile-friendly fan site for the latest Alex Eala news and official links." />
+  <meta property="og:title" content="Eala Fan Hub" />
+  <meta property="og:description" content="Latest Alex Eala headlines, refreshed automatically." />
+  <meta property="og:type" content="website" />
+  <title>Eala Fan Hub — Alex Eala News</title>
+  <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+  <link rel="manifest" href="site.webmanifest" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <div class="flag-bar" aria-hidden="true"><span></span><span></span></div>
+    <div class="wrap nav-wrap">
+      <a class="brand" href="#top" aria-label="Eala Fan Hub home">
+        <span class="brand-mark" aria-hidden="true"><span class="sun">✦</span></span>
+        <span><strong>EALA</strong><small>FAN HUB</small></span>
+      </a>
+      <nav aria-label="Primary navigation">
+        <a href="#news">News</a>
+        <a href="#official">Official links</a>
+        <a href="#about">About</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero" id="top">
+      <div class="wrap hero-grid">
+        <div class="hero-copy">
+          <p class="eyebrow">INDEPENDENT ALEX EALA FAN SITE</p>
+          <h1>All the Alex Eala news.<br><span>One clean feed.</span></h1>
+          <p class="lede">Fresh headlines from around the web, collected automatically and linked back to the original publishers.</p>
+          <div class="hero-actions">
+            <a class="button primary" href="#news">Latest headlines</a>
+            <a class="button secondary" href="https://www.wtatennis.com/players/330332/alexandra-eala" target="_blank" rel="noopener noreferrer">Official WTA profile ↗</a>
+          </div>
+        </div>
+        <div class="hero-card" aria-label="Site status">
+          <div class="hero-card-top">
+            <span class="live-dot" aria-hidden="true"></span>
+            <strong>NEWS FEED</strong>
+            <span class="status" id="feed-status">Loading…</span>
+          </div>
+          <div class="hero-stat"><span>Search</span><strong>Alex Eala</strong></div>
+          <div class="hero-stat"><span>Refreshes</span><strong>Automatically</strong></div>
+          <div class="hero-stat"><span>Articles hosted here</span><strong>None</strong></div>
+          <p>Headlines open on the original publisher or via Google News.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="news-section" id="news">
+      <div class="wrap">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow blue">LATEST COVERAGE</p>
+            <h2>Alex Eala in the news</h2>
+          </div>
+          <button class="refresh" id="refresh-button" type="button" aria-label="Refresh news">↻ Refresh</button>
+        </div>
+
+        <div class="feed-meta" id="feed-meta" aria-live="polite">Fetching the latest headlines…</div>
+        <div class="news-grid" id="news-grid" aria-live="polite" aria-busy="true"></div>
+
+        <div class="feed-fallback" id="feed-fallback" hidden>
+          <h3>Live feed temporarily unavailable</h3>
+          <p>You can still open a current Google News search for Alex Eala.</p>
+          <a class="button primary" href="https://news.google.com/search?q=%22Alex%20Eala%22&hl=en-US&gl=US&ceid=US%3Aen" target="_blank" rel="noopener noreferrer">Open Google News ↗</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="official-section" id="official">
+      <div class="wrap">
+        <div class="section-heading compact">
+          <div>
+            <p class="eyebrow yellow">PRIMARY SOURCES</p>
+            <h2>Official &amp; direct links</h2>
+          </div>
+        </div>
+        <div class="link-grid">
+          <a class="source-card" href="https://www.wtatennis.com/players/330332/alexandra-eala" target="_blank" rel="noopener noreferrer"><span>WTA</span><strong>Player profile</strong><em>Stats, ranking, activity ↗</em></a>
+          <a class="source-card" href="https://www.wtatennis.com/players/330332/alexandra-eala/record" target="_blank" rel="noopener noreferrer"><span>WTA</span><strong>Match activity</strong><em>Official tour record ↗</em></a>
+          <a class="source-card" href="https://www.google.com/search?q=Alex+Eala+official+Instagram" target="_blank" rel="noopener noreferrer"><span>SOCIAL</span><strong>Find official social</strong><em>Use verified accounts ↗</em></a>
+        </div>
+      </div>
+    </section>
+
+    <section class="about-section" id="about">
+      <div class="wrap about-grid">
+        <div>
+          <p class="eyebrow red">ABOUT THIS SITE</p>
+          <h2>Built for fans, not affiliated with Alex Eala or the WTA.</h2>
+        </div>
+        <div class="about-copy">
+          <p>Eala Fan Hub is an independent, non-commercial fan project. It displays headlines and source names, then sends readers to the original publisher. It does not republish full articles or claim ownership of publisher content.</p>
+          <p>The automatic feed depends on a public RSS endpoint and can occasionally be delayed, incomplete, or unavailable. Always verify breaking information with the linked source.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap footer-grid">
+      <div><strong>EALA FAN HUB</strong><p>For the fans. Para sa Pilipinas.</p></div>
+      <p>Independent fan site · <span id="year"></span></p>
+    </div>
+  </footer>
+
+  <noscript><div class="noscript">JavaScript is required for the automatic news feed. <a href="https://news.google.com/search?q=%22Alex%20Eala%22">Open Google News instead.</a></div></noscript>
+  <script src="app.js" defer></script>
+</body>
+</html>
