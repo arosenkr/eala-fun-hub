@@ -1,4 +1,6 @@
 const FEED_URL = 'https://news.google.com/rss/search?q=%22Alex%20Eala%22%20OR%20%22Alexandra%20Eala%22&hl=en-US&gl=US&ceid=US:en';
+const NEWS_LIMIT = 9;
+const UPSTREAM_TIMEOUT_MS = 8000;
 
 function decodeXML(value = '') {
   return value
@@ -28,7 +30,6 @@ function newsTimestamp(item) {
 
 function parseRSS(xml) {
   const blocks = xml.match(/<item>[\s\S]*?<\/item>/gi) || [];
-
   return blocks
     .map(block => {
       const source = textBetween(block, 'source');
@@ -39,19 +40,30 @@ function parseRSS(xml) {
     })
     .filter(item => item.title && /^https:\/\//i.test(item.link))
     .sort((a, b) => newsTimestamp(b) - newsTimestamp(a))
-    .slice(0, 18);
+    .slice(0, NEWS_LIMIT);
+}
+
+async function fetchFeed() {
+  const controller = new AbortController();
+  const timeoutId = setTimeout(() => controller.abort(), UPSTREAM_TIMEOUT_MS);
+  try {
+    return await fetch(FEED_URL, {
+      signal: controller.signal,
+      headers: {
+        'user-agent': 'EalaFanHub/1.1 (+independent fan news reader)',
+        accept: 'application/rss+xml, application/xml, text/xml'
+      }
+    });
+  } finally {
+    clearTimeout(timeoutId);
+  }
 }
 
 export default async () => {
   try {
-    const response = await fetch(FEED_URL, {
-      headers: {
-        'user-agent': 'EalaFanHub/1.0 (+independent fan news reader)',
-        'accept': 'application/rss+xml, application/xml, text/xml'
-      }
-    });
-
+    const response = await fetchFeed();
     if (!response.ok) throw new Error(`Upstream feed returned ${response.status}`);
+
     const xml = await response.text();
     const items = parseRSS(xml);
     if (!items.length) throw new Error('Upstream feed contained no usable items');
@@ -65,7 +77,9 @@ export default async () => {
       }
     });
   } catch (error) {
-    return new Response(JSON.stringify({ error: 'News feed temporarily unavailable' }), {
+    return new Response(JSON.stringify({
+      error: error?.name === 'AbortError' ? 'News feed timed out' : 'News feed temporarily unavailable'
+    }), {
       status: 502,
       headers: {
         'content-type': 'application/json; charset=utf-8',
