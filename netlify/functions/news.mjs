@@ -1,5 +1,5 @@
 const FEED_URL = 'https://news.google.com/rss/search?q=%22Alex%20Eala%22%20OR%20%22Alexandra%20Eala%22&hl=en-US&gl=US&ceid=US:en';
-const NEWS_LIMIT = 9;
+const NEWS_LIMIT = 15;
 const UPSTREAM_TIMEOUT_MS = 8000;
 
 function decodeXML(value = '') {
