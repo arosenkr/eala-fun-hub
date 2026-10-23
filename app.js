@@ -1,7 +1,6 @@
 const grid = document.querySelector('#news-grid');
 const meta = document.querySelector('#feed-meta');
 const fallback = document.querySelector('#feed-fallback');
-const statusEl = document.querySelector('#feed-status');
 const refreshButton = document.querySelector('#refresh-button');
 document.querySelector('#year').textContent = new Date().getFullYear();
 
@@ -55,7 +54,6 @@ async function loadNews({ force = false } = {}) {
   fallback.hidden = true;
   if (!grid.children.length || force) renderSkeletons();
   meta.textContent = 'Fetching the latest headlines…';
-  statusEl.textContent = 'Updating…';
 
   try {
     const response = await fetch(`/api/news${force ? `?t=${Date.now()}` : ''}`, { headers: { 'accept': 'application/json' } });
@@ -65,13 +63,11 @@ async function loadNews({ force = false } = {}) {
     renderNews(data.items);
     const updated = new Date(data.fetchedAt);
     meta.textContent = `Showing ${data.items.length} recent headlines · Feed checked ${updated.toLocaleString()}`;
-    statusEl.textContent = 'Live';
   } catch (error) {
     console.error(error);
     grid.innerHTML = '';
     fallback.hidden = false;
     meta.textContent = 'The automatic feed could not be loaded.';
-    statusEl.textContent = 'Unavailable';
   } finally {
     refreshButton.disabled = false;
     grid.setAttribute('aria-busy', 'false');

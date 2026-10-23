@@ -4,9 +4,9 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="theme-color" content="#0038A8" />
-  <meta name="description" content="Eala Fan Hub — an independent, mobile-friendly fan site for the latest Alex Eala news and official links." />
+  <meta name="description" content="Eala Fan Hub — an independent, mobile-friendly fan site for Alex Eala news, results, statistics, records, and social links." />
   <meta property="og:title" content="Eala Fan Hub" />
-  <meta property="og:description" content="Latest Alex Eala headlines, refreshed automatically." />
+  <meta property="og:description" content="Alex Eala resources and the latest headlines, refreshed automatically." />
   <meta property="og:type" content="website" />
   <title>Eala Fan Hub — Alex Eala News</title>
   <link rel="icon" href="favicon.svg" type="image/svg+xml" />
@@ -24,8 +24,9 @@
         <span><strong>EALA</strong><small>FAN HUB</small></span>
       </a>
       <nav aria-label="Primary navigation">
+        <a href="#resources">Links</a>
         <a href="#news">News</a>
-        <a href="#official">Official links</a>
+        <a href="#social">Social</a>
         <a href="#about">About</a>
       </nav>
     </div>
@@ -33,26 +34,52 @@
 
   <main id="main">
     <section class="hero" id="top">
-      <div class="wrap hero-grid">
+      <div class="wrap hero-grid hero-grid-single">
         <div class="hero-copy">
           <p class="eyebrow">INDEPENDENT ALEX EALA FAN SITE</p>
           <h1>All the Alex Eala news.<br><span>One clean feed.</span></h1>
-          <p class="lede">Fresh headlines from around the web, collected automatically and linked back to the original publishers.</p>
-          <div class="hero-actions">
-            <a class="button primary" href="#news">Latest headlines</a>
-            <a class="button secondary" href="https://www.wtatennis.com/players/330332/alexandra-eala" target="_blank" rel="noopener noreferrer">Official WTA profile ↗</a>
+          <p class="lede">Fresh headlines from around the web, plus quick links to results, statistics, records, and social media.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="resources-section" id="resources">
+      <div class="wrap">
+        <div class="section-heading compact">
+          <div>
+            <p class="eyebrow yellow">ALEX EALA LINKS</p>
+            <h2>Profiles, results &amp; records</h2>
           </div>
         </div>
-        <div class="hero-card" aria-label="Site status">
-          <div class="hero-card-top">
-            <span class="live-dot" aria-hidden="true"></span>
-            <strong>NEWS FEED</strong>
-            <span class="status" id="feed-status">Loading…</span>
+
+        <div class="resource-grid">
+          <a class="resource-card" href="https://www.wtatennis.com/players/330332/alexandra-eala" target="_blank" rel="noopener noreferrer">
+            <span class="resource-kicker">WTA</span>
+            <strong>Official WTA profile</strong>
+            <em>Player profile, ranking and activity ↗</em>
+          </a>
+
+          <a class="resource-card" href="https://www.espn.com/tennis/player/results/_/id/7759/alexandra-eala" target="_blank" rel="noopener noreferrer">
+            <span class="resource-kicker">ESPN</span>
+            <strong>Recent tournament results</strong>
+            <em>Recent match and tournament results ↗</em>
+          </a>
+
+          <a class="resource-card" href="https://www.wtatennis.com/players/330332/alexandra-eala/stats#main-content" target="_blank" rel="noopener noreferrer">
+            <span class="resource-kicker">WTA</span>
+            <strong>Statistics</strong>
+            <em>Official WTA statistics ↗</em>
+          </a>
+        </div>
+
+        <div class="record-group">
+          <p class="record-label">Best results by tournament level</p>
+          <div class="record-links">
+            <a href="https://www.wtatennis.com/players/330332/alexandra-eala/record" target="_blank" rel="noopener noreferrer"><span>Grand Slams</span><strong>View record ↗</strong></a>
+            <a href="https://www.wtatennis.com/players/330332/alexandra-eala/record?level=wta-1000" target="_blank" rel="noopener noreferrer"><span>WTA 1000</span><strong>View record ↗</strong></a>
+            <a href="https://www.wtatennis.com/players/330332/alexandra-eala/record?level=wta-500" target="_blank" rel="noopener noreferrer"><span>WTA 500</span><strong>View record ↗</strong></a>
+            <a href="https://www.wtatennis.com/players/330332/alexandra-eala/record?level=wta-250" target="_blank" rel="noopener noreferrer"><span>WTA 250</span><strong>View record ↗</strong></a>
           </div>
-          <div class="hero-stat"><span>Search</span><strong>Alex Eala</strong></div>
-          <div class="hero-stat"><span>Refreshes</span><strong>Automatically</strong></div>
-          <div class="hero-stat"><span>Articles hosted here</span><strong>None</strong></div>
-          <p>Headlines open on the original publisher or via Google News.</p>
         </div>
       </div>
     </section>
@@ -78,18 +105,28 @@
       </div>
     </section>
 
-    <section class="official-section" id="official">
+    <section class="social-section" id="social">
       <div class="wrap">
         <div class="section-heading compact">
           <div>
-            <p class="eyebrow yellow">PRIMARY SOURCES</p>
-            <h2>Official &amp; direct links</h2>
+            <p class="eyebrow red">SOCIAL MEDIA</p>
+            <h2>Follow Eala coverage</h2>
           </div>
         </div>
-        <div class="link-grid">
-          <a class="source-card" href="https://www.wtatennis.com/players/330332/alexandra-eala" target="_blank" rel="noopener noreferrer"><span>WTA</span><strong>Player profile</strong><em>Stats, ranking, activity ↗</em></a>
-          <a class="source-card" href="https://www.wtatennis.com/players/330332/alexandra-eala/record" target="_blank" rel="noopener noreferrer"><span>WTA</span><strong>Match activity</strong><em>Official tour record ↗</em></a>
-          <a class="source-card" href="https://www.google.com/search?q=Alex+Eala+official+Instagram" target="_blank" rel="noopener noreferrer"><span>SOCIAL</span><strong>Find official social</strong><em>Use verified accounts ↗</em></a>
+
+        <div class="social-grid">
+          <a class="social-card" href="https://www.instagram.com/alex.eala/?hl=en" target="_blank" rel="noopener noreferrer">
+            <span>INSTAGRAM</span><strong>Eala on Instagram</strong><em>Open Instagram ↗</em>
+          </a>
+          <a class="social-card" href="https://www.instagram.com/dyancastillejo/?hl=en" target="_blank" rel="noopener noreferrer">
+            <span>INSTAGRAM</span><strong>Dyan Castillejo on Instagram</strong><em>Open Instagram ↗</em>
+          </a>
+          <a class="social-card" href="https://x.com/DYANCASTILLEJO?lang=en" target="_blank" rel="noopener noreferrer">
+            <span>X</span><strong>Dyan Castillejo on X</strong><em>Open X ↗</em>
+          </a>
+          <a class="social-card" href="https://x.com/search?q=eala&src=typed_query&f=live" target="_blank" rel="noopener noreferrer">
+            <span>X</span><strong>Latest Eala content on X</strong><em>Open live search ↗</em>
+          </a>
         </div>
       </div>
     </section>
@@ -111,7 +148,7 @@
   <footer>
     <div class="wrap footer-grid">
       <div><strong>EALA FAN HUB</strong><p>For the fans. Para sa Pilipinas.</p></div>
-      <p>Independent fan site · <span id="year"></span></p>
+      <p>By A &amp; A · <span id="year"></span></p>
     </div>
   </footer>
 
