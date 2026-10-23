@@ -6,7 +6,7 @@ const year = document.querySelector('#year');
 
 if (year) year.textContent = new Date().getFullYear();
 
-const NEWS_LIMIT = 9;
+const NEWS_LIMIT = 15;
 const REQUEST_TIMEOUT_MS = 10000;
 const NEWS_ENDPOINTS = ['/api/news', '/.netlify/functions/news'];
 
