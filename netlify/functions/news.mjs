@@ -19,7 +19,9 @@ function textBetween(xml, tag) {
 
 function cleanTitle(title, source) {
   if (!title) return '';
-  if (source && title.endsWith(` - ${source}`)) return title.slice(0, -(source.length + 3)).trim();
+  if (source && title.endsWith(` - ${source}`)) {
+    return title.slice(0, -(source.length + 3)).trim();
+  }
   return title;
 }
 
@@ -30,6 +32,7 @@ function newsTimestamp(item) {
 
 function parseRSS(xml) {
   const blocks = xml.match(/<item>[\s\S]*?<\/item>/gi) || [];
+
   return blocks
     .map(block => {
       const source = textBetween(block, 'source');
@@ -38,7 +41,7 @@ function parseRSS(xml) {
       const pubDate = textBetween(block, 'pubDate');
       return { title, link, pubDate, source };
     })
-    .filter(item => item.title && /^https:\/\//i.test(item.link))
+    .filter(item => item.title && /^https?:\/\//i.test(item.link))
     .sort((a, b) => newsTimestamp(b) - newsTimestamp(a))
     .slice(0, NEWS_LIMIT);
 }
@@ -46,12 +49,14 @@ function parseRSS(xml) {
 async function fetchFeed() {
   const controller = new AbortController();
   const timeoutId = setTimeout(() => controller.abort(), UPSTREAM_TIMEOUT_MS);
+
   try {
     return await fetch(FEED_URL, {
       signal: controller.signal,
       headers: {
-        'user-agent': 'EalaFanHub/1.1 (+independent fan news reader)',
-        accept: 'application/rss+xml, application/xml, text/xml'
+        'user-agent': 'Mozilla/5.0 (compatible; EalaFanHub/1.2; +https://www.netlify.com/)',
+        accept: 'application/rss+xml, application/xml, text/xml;q=0.9, */*;q=0.1',
+        'accept-language': 'en-US,en;q=0.9'
       }
     });
   } finally {
@@ -68,25 +73,31 @@ export default async () => {
     const items = parseRSS(xml);
     if (!items.length) throw new Error('Upstream feed contained no usable items');
 
-    return new Response(JSON.stringify({ items, fetchedAt: new Date().toISOString() }), {
+    return new Response(JSON.stringify({
+      items,
+      fetchedAt: new Date().toISOString()
+    }), {
       status: 200,
       headers: {
         'content-type': 'application/json; charset=utf-8',
-        'cache-control': 'public, max-age=300, s-maxage=900, stale-while-revalidate=3600',
+        'cache-control': 'public, max-age=120, s-maxage=300, stale-while-revalidate=1800',
         'access-control-allow-origin': '*'
       }
     });
   } catch (error) {
+    console.error('news function error', error);
+
     return new Response(JSON.stringify({
-      error: error?.name === 'AbortError' ? 'News feed timed out' : 'News feed temporarily unavailable'
+      error: error?.name === 'AbortError'
+        ? 'News feed timed out'
+        : 'News feed temporarily unavailable'
     }), {
       status: 502,
       headers: {
         'content-type': 'application/json; charset=utf-8',
-        'cache-control': 'no-store'
+        'cache-control': 'no-store',
+        'access-control-allow-origin': '*'
       }
     });
   }
 };
-
-export const config = { path: '/api/news' };
