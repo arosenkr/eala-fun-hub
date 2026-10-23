@@ -21,15 +21,25 @@ function cleanTitle(title, source) {
   return title;
 }
 
+function newsTimestamp(item) {
+  const timestamp = new Date(item?.pubDate || '').getTime();
+  return Number.isFinite(timestamp) ? timestamp : 0;
+}
+
 function parseRSS(xml) {
   const blocks = xml.match(/<item>[\s\S]*?<\/item>/gi) || [];
-  return blocks.slice(0, 18).map(block => {
-    const source = textBetween(block, 'source');
-    const title = cleanTitle(textBetween(block, 'title'), source);
-    const link = textBetween(block, 'link');
-    const pubDate = textBetween(block, 'pubDate');
-    return { title, link, pubDate, source };
-  }).filter(item => item.title && /^https:\/\//i.test(item.link));
+
+  return blocks
+    .map(block => {
+      const source = textBetween(block, 'source');
+      const title = cleanTitle(textBetween(block, 'title'), source);
+      const link = textBetween(block, 'link');
+      const pubDate = textBetween(block, 'pubDate');
+      return { title, link, pubDate, source };
+    })
+    .filter(item => item.title && /^https:\/\//i.test(item.link))
+    .sort((a, b) => newsTimestamp(b) - newsTimestamp(a))
+    .slice(0, 18);
 }
 
 export default async () => {
