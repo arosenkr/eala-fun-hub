@@ -236,3 +236,72 @@ footer p { color: #aebbd6; margin: 7px 0 0; font-size: 13px; }
   .resource-links a.result-level { padding-left: 20px; }
   .simple-social-section { padding: 64px 0; }
 }
+
+
+/* 2026-10-23 v6: compact link typography, underlined social links, mobile navigation */
+.home-label strong {
+  display: block;
+  letter-spacing: .01em;
+  font-size: 18px;
+  line-height: 1;
+}
+.resource-links a,
+.social-link-list a {
+  font-size: clamp(23px, 2.6vw, 31px);
+  font-weight: 850;
+}
+.social-link-list a {
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 5px;
+}
+@media (max-width: 820px) {
+  nav {
+    display: flex;
+    gap: 16px;
+    overflow-x: auto;
+    white-space: nowrap;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+  nav::-webkit-scrollbar { display: none; }
+  .nav-wrap {
+    gap: 14px;
+  }
+  .brand {
+    flex: 0 0 auto;
+  }
+  nav a {
+    flex: 0 0 auto;
+    font-size: 13px;
+  }
+}
+@media (max-width: 560px) {
+  .nav-wrap {
+    width: min(100% - 18px, 1120px);
+    height: 68px;
+    gap: 10px;
+  }
+  .brand-mark {
+    width: 32px;
+    height: 32px;
+  }
+  .sun {
+    font-size: 20px;
+  }
+  .home-label strong {
+    font-size: 15px;
+  }
+  nav {
+    gap: 12px;
+    min-width: 0;
+  }
+  nav a {
+    font-size: 12px;
+  }
+  .resource-links a,
+  .social-link-list a,
+  .simple-link-label {
+    font-size: clamp(21px, 6vw, 27px);
+  }
+}
