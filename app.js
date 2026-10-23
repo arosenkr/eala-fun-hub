@@ -26,8 +26,18 @@ function renderSkeletons() {
   grid.innerHTML = Array.from({ length: 6 }, () => '<div class="skeleton" aria-hidden="true"></div>').join('');
 }
 
+function newsTimestamp(item) {
+  const timestamp = new Date(item?.pubDate || '').getTime();
+  return Number.isFinite(timestamp) ? timestamp : 0;
+}
+
+function sortNewsNewestFirst(items) {
+  return [...items].sort((a, b) => newsTimestamp(b) - newsTimestamp(a));
+}
+
 function renderNews(items) {
-  grid.innerHTML = items.map(item => `
+  const sortedItems = sortNewsNewestFirst(items);
+  grid.innerHTML = sortedItems.map(item => `
     <a class="news-card" href="${escapeHTML(item.link)}" target="_blank" rel="noopener noreferrer">
       <span class="source">${escapeHTML(item.source || 'News')}</span>
       <h3>${escapeHTML(item.title)}</h3>
