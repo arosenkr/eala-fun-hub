@@ -106,3 +106,11 @@ The second URL should return JSON containing an `items` array and `fetchedAt` ti
 - No player photo is bundled, avoiding an unnecessary image-licensing issue.
 - The colors use the principal Philippine flag palette: blue `#0038A8`, red `#CE1126`, white, and yellow `#FCD116`.
 - This is an independent fan site, not an official Alex Eala or WTA property.
+
+## Current page structure
+
+The current version places profile/results/statistics/record links immediately below the page header, followed by the automatically updating news feed, social-media links, the about section, and a footer credit to **A & A**.
+
+## October 23, 2026 update
+
+This version uses 9 news placeholders/items, cache-busted CSS/JS asset URLs, an explicit Netlify `/api/news` rewrite, and a direct-function fallback (`/.netlify/functions/news`) in the browser. Replace `index.html`, `styles.css`, `app.js`, `netlify.toml`, and `netlify/functions/news.mjs` together so the deployed frontend and function remain in sync.

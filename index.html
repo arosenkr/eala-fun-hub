@@ -11,7 +11,7 @@
   <title>Eala Fan Hub — Alex Eala News</title>
   <link rel="icon" href="favicon.svg" type="image/svg+xml" />
   <link rel="manifest" href="site.webmanifest" />
-  <link rel="stylesheet" href="styles.css?v=20261023-6" />
+  <link rel="stylesheet" href="styles.css?v=20261025-7" />
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
@@ -25,6 +25,7 @@
       </a>
       <nav aria-label="Primary navigation">
         <a href="#resources">Links</a>
+        <a href="#grid-game">Grid</a>
         <a href="#news">News</a>
         <a href="#social">Social</a>
         <a href="#about">About</a>
@@ -62,6 +63,67 @@
         </div>
       </div>
     </section>
+
+
+    <section class="grid-section" id="grid-game">
+      <div class="wrap">
+        <div class="section-heading grid-heading">
+          <div>
+            <p class="eyebrow blue">EALA TRIVIA</p>
+            <h2>Alex Eala Immaculate Grid</h2>
+            <p class="grid-intro">Nine new senior-career Eala clues every day. Select a square, type your answer, and try for 9/9 before revealing the board.</p>
+            <p class="daily-grid-meta" id="daily-grid-meta" aria-live="polite"></p>
+          </div>
+          <div class="grid-score" aria-live="polite"><strong id="grid-score">0/9</strong><span>correct</span></div>
+        </div>
+
+        <div class="trivia-grid-shell">
+          <div class="trivia-grid" id="trivia-grid" aria-label="Alex Eala trivia grid">
+            <div class="grid-corner"><span>CLUE</span><strong>ERA</strong></div>
+            <div class="grid-col-head"><span>2025</span><strong>Breakthrough</strong></div>
+            <div class="grid-col-head"><span>2026</span><strong>Breakthrough</strong></div>
+            <div class="grid-col-head"><span>2024</span><strong>Rise</strong></div>
+
+            <div class="grid-row-head"><span>01</span><strong>Opponent</strong></div>
+            <button class="trivia-cell" data-cell="opponent-2025" type="button"><span class="cell-number">1</span><span class="cell-clue">Eala beat this world No. 2 in the Miami quarterfinals.</span><span class="cell-answer"></span></button>
+            <button class="trivia-cell" data-cell="opponent-2026" type="button"><span class="cell-number">2</span><span class="cell-clue">Eala defeated this American in the Washington final.</span><span class="cell-answer"></span></button>
+            <button class="trivia-cell" data-cell="opponent-2024" type="button"><span class="cell-number">3</span><span class="cell-clue">Eala beat this Ukrainian in Madrid for her first WTA 1000 main-draw win.</span><span class="cell-answer"></span></button>
+
+            <div class="grid-row-head"><span>02</span><strong>Tournament</strong></div>
+            <button class="trivia-cell" data-cell="tournament-2025" type="button"><span class="cell-number">4</span><span class="cell-clue">The WTA 1000 where Eala reached her first tour semifinal.</span><span class="cell-answer"></span></button>
+            <button class="trivia-cell" data-cell="tournament-2026" type="button"><span class="cell-number">5</span><span class="cell-clue">The event where Eala won her first WTA Tour singles title.</span><span class="cell-answer"></span></button>
+            <button class="trivia-cell" data-cell="tournament-2024" type="button"><span class="cell-number">6</span><span class="cell-clue">The WTA 1000 where Eala reached the second round in 2024.</span><span class="cell-answer"></span></button>
+
+            <div class="grid-row-head"><span>03</span><strong>Milestone</strong></div>
+            <button class="trivia-cell" data-cell="milestone-2025" type="button"><span class="cell-number">7</span><span class="cell-clue">Ranking barrier Eala broke immediately after her Miami run.</span><span class="cell-answer"></span></button>
+            <button class="trivia-cell" data-cell="milestone-2026" type="button"><span class="cell-number">8</span><span class="cell-clue">Historic first achieved by winning Washington.</span><span class="cell-answer"></span></button>
+            <button class="trivia-cell" data-cell="milestone-2024" type="button"><span class="cell-number">9</span><span class="cell-clue">Career milestone Eala achieved by beating Lesia Tsurenko in Madrid.</span><span class="cell-answer"></span></button>
+          </div>
+        </div>
+
+        <div class="grid-controls">
+          <button class="button primary" id="grid-reveal" type="button">Reveal answers</button>
+          <button class="button secondary" id="grid-reset" type="button">Reset grid</button>
+          <span id="grid-status" class="grid-status" aria-live="polite">Select a square to play.</span>
+        </div>
+        <p class="grid-note">A new grid is selected automatically each calendar day from a built-in bank of verified senior/professional Eala facts. Progress is saved in this browser separately for each day. This fan game is independent and is not affiliated with Alex Eala or the WTA.</p>
+      </div>
+    </section>
+
+    <dialog class="answer-dialog" id="answer-dialog">
+      <form method="dialog" class="answer-card" id="answer-form">
+        <button class="dialog-close" value="cancel" aria-label="Close">×</button>
+        <p class="eyebrow blue" id="answer-era">EALA GRID</p>
+        <h3 id="answer-clue">Trivia clue</h3>
+        <label for="answer-input">Your answer</label>
+        <input id="answer-input" type="text" autocomplete="off" spellcheck="false" placeholder="Type your answer…" />
+        <p class="answer-feedback" id="answer-feedback" aria-live="polite"></p>
+        <div class="answer-actions">
+          <button class="button primary" id="answer-submit" type="submit" value="default">Submit answer</button>
+          <button class="button secondary" type="button" id="answer-skip">Skip</button>
+        </div>
+      </form>
+    </dialog>
 
     <section class="news-section" id="news">
       <div class="wrap">
@@ -121,6 +183,6 @@
   </footer>
 
   <noscript><div class="noscript">JavaScript is required for the automatic news feed. <a href="https://news.google.com/search?q=%22Alex%20Eala%22">Open Google News instead.</a></div></noscript>
-  <script src="app.js?v=20261023-6" defer></script>
+  <script src="app.js?v=20261025-9" defer></script>
 </body>
 </html>
