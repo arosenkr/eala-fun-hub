@@ -33,7 +33,7 @@ nav a { text-decoration: none; color: #344054; font-size: 14px; font-weight: 700
 nav a:hover { color: var(--blue); }
 .hero { background: linear-gradient(122deg, #f7faff 0%, #fff 50%, #fff8f8 100%); border-bottom: 1px solid var(--line); overflow: hidden; }
 .hero-grid { min-height: 575px; display: grid; grid-template-columns: 1.3fr .7fr; align-items: center; gap: 70px; padding: 76px 0; position: relative; }
-.hero-grid::before { content: ""; position: absolute; width: 330px; height: 330px; right: -74px; top: 34px; background: url("eala-matte-flag-sampaguita-512.png") center/contain no-repeat; opacity: .14; filter: saturate(.75) brightness(1.12); }
+.hero-grid::before { content: ""; position: absolute; width: 360px; height: 214px; right: -12px; top: 54px; background: url("eala-flag-sampaguita-rect.png") center/contain no-repeat; opacity: 1; filter: none; }
 .hero-grid::after { content: ""; position: absolute; width: 500px; height: 140px; background: var(--blue); opacity: .04; transform: rotate(-12deg); left: -180px; bottom: 30px; }
 .eyebrow { margin: 0 0 18px; color: var(--red); font-size: 12px; line-height: 1; font-weight: 900; letter-spacing: .18em; }
 .eyebrow.blue { color: var(--blue); }
@@ -332,9 +332,9 @@ footer p { color: #aebbd6; margin: 7px 0 0; font-size: 13px; }
   gap: 22px;
 }
 .eala-saurus {
-  width: 118px;
-  height: 118px;
-  flex: 0 0 118px;
+  width: 142px;
+  height: 142px;
+  flex: 0 0 142px;
   object-fit: contain;
 }
 .daily-trivia-copy {
@@ -393,6 +393,34 @@ footer a {
   #trivia { scroll-margin-top: 80px; }
   .daily-trivia-section { padding: 62px 0 68px; }
   .daily-trivia-layout { gap: 14px; }
-  .eala-saurus { width: 84px; height: 84px; flex-basis: 84px; }
+  .eala-saurus { width: 96px; height: 96px; flex-basis: 96px; }
   .daily-trivia-reveal { font-size: 20px; }
 }
+
+/* v19: tennis-green visual system */
+:root {
+  --blue: #176b3a;
+  --blue-dark: #0d4f2a;
+  --red: #2f7d4a;
+  --yellow: #f2c94c;
+  --line: #dce9df;
+  --surface: #f3f8f4;
+  --muted: #5d7063;
+}
+.flag-bar span:first-child { background: #176b3a; }
+.flag-bar span:last-child { background: #74a85b; }
+.site-header { border-bottom-color: rgba(220,233,223,.9); }
+nav a:hover, .eyebrow.blue, h1 span, .news-card .source,
+.resource-kicker, .social-card span, .record-links strong,
+.simple-link-list a:hover, .daily-trivia-reveal { color: var(--blue); }
+.hero { background: linear-gradient(122deg, #f2f8f3 0%, #fff 55%, #f6faf2 100%); }
+.hero-grid::after { background: var(--blue); }
+.button.primary { background: var(--blue); box-shadow: 0 8px 24px rgba(23,107,58,.18); }
+.button.primary:hover { background: var(--blue-dark); }
+.news-card:hover { border-color: #b9d3c0; box-shadow: 0 14px 34px rgba(23,107,58,.09); }
+.news-card .arrow { color: #4c8b50; }
+.simple-social-section, .social-section { background: linear-gradient(122deg, #fff 0%, #f2f8f3 100%); }
+.daily-trivia-section { background: #f7fbf7; }
+.daily-trivia-section h2 { color: #145c32; }
+footer { background: #0d4f2a; border-top-color: #78a85e; }
+footer p { color: #d5e6d9; }
