@@ -95,3 +95,11 @@ footer{background:var(--green-dark);color:#fff;padding:24px 0;border-top:4px sol
   .brand-block strong::after{width:.56em;height:.56em;right:-.23em;bottom:-.06em}
   .brand-block strong::before{width:.41em;height:.20em;right:-.18em;bottom:.08em;border-top-width:1.5px}
 }
+
+/* v26: shift tennis ball to the lower-right corner of the final b */
+.brand-block strong::after{right:-.42em;bottom:-.16em}
+.brand-block strong::before{right:-.36em;bottom:-.01em}
+@media(max-width:760px){
+  .brand-block strong::after{right:-.38em;bottom:-.14em}
+  .brand-block strong::before{right:-.32em;bottom:0}
+}
