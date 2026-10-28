@@ -61,9 +61,37 @@ footer{background:var(--green-dark);color:#fff;padding:24px 0;border-top:4px sol
 .header-emblem{background:transparent!important;box-shadow:none!important;border:0!important;border-radius:0!important;padding:0!important;filter:none!important}
 @media(max-width:760px){.daily-trivia-copy h1{font-size:28px}.daily-trivia-question{font-size:19px}.daily-trivia-reveal{font-size:18px;padding:10px 19px}}
 
-/* v24: thin flag outline, matte tennis-ball accent, Facebook social row */
-.header-emblem{border:1px solid #111!important;border-radius:4px!important;box-sizing:border-box}
+/* v25: screenshot-matched clean flag and tennis-ball accent */
+.header-emblem{
+  border:0!important;
+  border-radius:0!important;
+  background:transparent!important;
+  box-shadow:none!important;
+  padding:0!important;
+  filter:none!important;
+  object-fit:contain;
+}
 .brand-block strong{position:relative;display:inline-block;align-self:flex-start}
-.brand-block strong::after{content:"";position:absolute;width:.43em;height:.43em;right:-.18em;bottom:.02em;border-radius:50%;background:#d8df25;border:1px solid #9da619;box-shadow:none;z-index:2}
-.brand-block strong::before{content:"";position:absolute;width:.31em;height:.16em;right:-.13em;bottom:.12em;border-top:2px solid rgba(255,255,255,.78);border-radius:50%;transform:rotate(-35deg);z-index:3}
-@media(max-width:760px){.brand-block strong::after{width:.40em;height:.40em}.brand-block strong::before{width:.29em;height:.14em;border-top-width:1.5px}}
+.brand-block strong::after{
+  content:"";position:absolute;
+  width:.62em;height:.62em;
+  right:-.26em;bottom:-.08em;
+  border-radius:50%;
+  background:#f3e500;
+  border:1px solid #a9a500;
+  box-shadow:0 4px 7px rgba(0,0,0,.20);
+  z-index:2
+}
+.brand-block strong::before{
+  content:"";position:absolute;
+  width:.45em;height:.23em;
+  right:-.20em;bottom:.07em;
+  border-top:2px solid rgba(255,255,255,.95);
+  border-radius:50%;
+  transform:rotate(-38deg);
+  z-index:3
+}
+@media(max-width:760px){
+  .brand-block strong::after{width:.56em;height:.56em;right:-.23em;bottom:-.06em}
+  .brand-block strong::before{width:.41em;height:.20em;right:-.18em;bottom:.08em;border-top-width:1.5px}
+}
