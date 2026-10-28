@@ -147,109 +147,113 @@ if (refreshButton) {
 renderSkeletons();
 loadNews();
 setInterval(() => loadNews(), 10 * 60 * 1000);
-const DAILY_PERSON_GRIDS = [
-  {
-    rows:[
-      'Played Alex Eala in the 2025 Miami Open singles main draw',
-      'Played Alex Eala in the 2026 Berlin Tennis Open singles main draw',
-      'Played Alex Eala in the 2026 Wimbledon singles main draw'
-    ],
-    cols:[
-      'Alex Eala defeated this player in a completed singles match at the event named in the row',
-      'This player defeated Alex Eala in a completed singles match at the event named in the row',
-      'This player was already a Grand Slam singles champion when she played Alex Eala at the event named in the row'
-    ],
-    cells:{
-      r0c0:['Katie Volynets','Jelena Ostapenko','Madison Keys','Iga Swiatek'],
-      r0c1:['Jessica Pegula'],
-      r0c2:['Jelena Ostapenko','Madison Keys','Iga Swiatek'],
-      r1c0:['Donna Vekic','Elena Rybakina','Elina Svitolina'],
-      r1c1:['Linda Noskova'],
-      r1c2:['Elena Rybakina'],
-      r2c0:['Renata Zarazua','Maya Joint','Iga Swiatek'],
-      r2c1:['Jasmine Paolini'],
-      r2c2:['Iga Swiatek']
-    }
-  },
-  {
-    rows:[
-      'Played Alex Eala in the 2025 Miami Open singles main draw',
-      'Played Alex Eala in the 2026 Berlin Tennis Open singles main draw',
-      'Played Alex Eala in the 2026 Mubadala DC Open singles main draw'
-    ],
-    cols:[
-      'Alex Eala defeated this player at the event named in the row',
-      'Alex Eala defeated this player at the event named in the row while the player was ranked in the WTA Top 10',
-      'Alex Eala defeated this player at the event named in the row and the player was already a Grand Slam singles champion'
-    ],
-    cells:{
-      r0c0:['Katie Volynets','Jelena Ostapenko','Madison Keys','Iga Swiatek'],
-      r0c1:['Madison Keys','Iga Swiatek'],
-      r0c2:['Jelena Ostapenko','Madison Keys','Iga Swiatek'],
-      r1c0:['Donna Vekic','Elena Rybakina','Elina Svitolina'],
-      r1c1:['Elena Rybakina','Elina Svitolina'],
-      r1c2:['Elena Rybakina'],
-      r2c0:['Zheng Qinwen','Leylah Fernandez','Elina Svitolina','Naomi Osaka','Jessica Pegula'],
-      r2c1:['Elina Svitolina','Jessica Pegula'],
-      r2c2:['Naomi Osaka']
-    }
-  },
-  {
-    rows:[
-      'Played Alex Eala in the 2025 Miami Open singles main draw',
-      'Played Alex Eala in the 2026 Berlin Tennis Open singles main draw',
-      'Played Alex Eala in the 2026 Mubadala DC Open singles main draw'
-    ],
-    cols:[
-      'Alex Eala defeated this player in straight sets at the event named in the row',
-      'This player was ranked in the WTA Top 10 when she played Alex Eala at the event named in the row',
-      'This player was already a Grand Slam singles champion when she played Alex Eala at the event named in the row'
-    ],
-    cells:{
-      r0c0:['Katie Volynets','Jelena Ostapenko','Madison Keys','Iga Swiatek'],
-      r0c1:['Madison Keys','Iga Swiatek','Jessica Pegula'],
-      r0c2:['Jelena Ostapenko','Madison Keys','Iga Swiatek'],
-      r1c0:['Donna Vekic','Elena Rybakina','Elina Svitolina'],
-      r1c1:['Elena Rybakina','Elina Svitolina'],
-      r1c2:['Elena Rybakina'],
-      r2c0:['Leylah Fernandez','Elina Svitolina','Naomi Osaka'],
-      r2c1:['Elina Svitolina','Jessica Pegula'],
-      r2c2:['Naomi Osaka']
-    }
-  }
+
+const DAILY_EALA_TRIVIA = [
+  { question: 'At which Grand Slam did Alex Eala win the girls\' singles title in 2022?', answer: 'US Open' },
+  { question: 'Which former world No. 1 founded the tennis academy where Alex Eala trained in Mallorca?', answer: 'Rafael Nadal' },
+  { question: 'Which player did Alex Eala defeat in the 2025 Miami Open quarterfinals to reach her first WTA 1000 semifinal?', answer: 'Iga Swiatek' },
+  { question: 'Which reigning Australian Open champion did Alex Eala defeat at the 2025 Miami Open?', answer: 'Madison Keys' },
+  { question: 'Which Latvian Grand Slam champion did Alex Eala defeat at the 2025 Miami Open?', answer: 'Jelena Ostapenko' },
+  { question: 'Which country does Alex Eala represent in international tennis?', answer: 'The Philippines' },
+  { question: 'In which Philippine city was Alex Eala born?', answer: 'Quezon City' },
+  { question: 'Who partnered Alex Eala to win the 2020 Australian Open girls\' doubles title?', answer: 'Priska Madelyn Nugroho' },
+  { question: 'In what year did Alex Eala win the US Open girls\' singles championship?', answer: '2022' },
+  { question: 'At which WTA 1000 tournament did Alex Eala make her breakthrough semifinal run in 2025?', answer: 'Miami Open' },
+  { question: 'Which American did Alex Eala defeat in the first round of the 2025 Miami Open?', answer: 'Katie Volynets' },
+  { question: 'At which tournament did Alex Eala reach her first WTA Tour singles final?', answer: 'Eastbourne' },
+  { question: 'Which surface is used at the US Open, where Alex Eala won the 2022 girls\' singles title?', answer: 'Hard court' },
+  { question: 'Alex Eala became the first player from which country to reach a WTA 1000 semifinal?', answer: 'The Philippines' },
+  { question: 'Which major did Alex Eala make her main-draw debut at on Centre Court in 2025?', answer: 'Wimbledon' },
+  { question: 'Which player defeated Alex Eala in the semifinals of the 2025 Miami Open?', answer: 'Jessica Pegula' },
+  { question: 'How many Grand Slam champions did Alex Eala defeat during her 2025 Miami Open semifinal run?', answer: 'Three' },
+  { question: 'What handedness does Alex Eala use to play tennis?', answer: 'Left-handed' },
+  { question: 'Which city hosts the Miami Open, where Alex Eala reached the semifinals in 2025?', answer: 'Miami' },
+  { question: 'Which Czech player did Alex Eala defeat in the 2022 US Open girls\' singles final?', answer: 'Lucie Havlickova' },
+  { question: 'Which Canadian did Alex Eala defeat in the semifinals of the 2022 US Open girls\' event?', answer: 'Victoria Mboko' },
+  { question: 'What seed was Alex Eala at the 2022 US Open girls\' singles tournament?', answer: 'No. 10 seed' },
+  { question: 'Was Alex Eala the first Filipino to win a junior Grand Slam singles title?', answer: 'Yes' },
+  { question: 'Which Grand Slam was the site of Alex Eala\'s first junior major title?', answer: 'Australian Open' },
+  { question: 'In which event did Alex Eala win her first junior Grand Slam title?', answer: 'Girls\' doubles' },
+  { question: 'What nationality is Priska Madelyn Nugroho, Eala\'s 2020 Australian Open doubles partner?', answer: 'Indonesian' },
+  { question: 'At which Grand Slam did Alex Eala reach the girls\' singles semifinals in 2020?', answer: 'Roland Garros' },
+  { question: 'Who defeated Alex Eala in the 2020 Roland Garros girls\' singles semifinals?', answer: 'Elsa Jacquemot' },
+  { question: 'At which Spanish island did Alex Eala train at the Rafa Nadal Academy?', answer: 'Mallorca' },
+  { question: 'What was Alex Eala\'s age when she won her first ITF professional singles title?', answer: '15' },
+  { question: 'At which ITF event did Alex Eala win her first professional singles title?', answer: 'W15 Manacor' },
+  { question: 'Who did Alex Eala defeat in the final of the W15 Manacor to win her first professional title?', answer: 'Yvonne Cavalle-Reimers' },
+  { question: 'In which country did Alex Eala win her first professional singles title?', answer: 'Spain' },
+  { question: 'At which 2023 ITF event did Alex Eala win both the singles and doubles titles?', answer: 'W100 Vitoria-Gasteiz' },
+  { question: 'In which country is Vitoria-Gasteiz, where Eala won a W100 singles title in 2023?', answer: 'Spain' },
+  { question: 'Which two events did Alex Eala win at W100 Vitoria-Gasteiz in 2023?', answer: 'Singles and doubles' },
+  { question: 'Which multi-sport event did Alex Eala win two bronze medals at in 2023?', answer: 'Asian Games' },
+  { question: 'In which Chinese city were the 2023 Asian Games held?', answer: 'Hangzhou' },
+  { question: 'Which medal did Alex Eala win in women\'s singles at the 2023 Asian Games?', answer: 'Bronze' },
+  { question: 'Which medal did Alex Eala win in mixed doubles at the 2023 Asian Games?', answer: 'Bronze' },
+  { question: 'Who partnered Alex Eala in mixed doubles at the 2023 Asian Games?', answer: 'Francis Alcantara' },
+  { question: 'How many medals did Alex Eala win at the 2023 Asian Games?', answer: 'Two' },
+  { question: 'Which WTA Tour event made Alex Eala the first Filipina to reach a tour-level singles final?', answer: 'Eastbourne' },
+  { question: 'Who did Alex Eala defeat in the 2025 Eastbourne semifinals?', answer: 'Varvara Gracheva' },
+  { question: 'Who defeated Alex Eala in the 2025 Eastbourne final?', answer: 'Maya Joint' },
+  { question: 'Did Alex Eala enter the 2025 Eastbourne main draw directly or through qualifying?', answer: 'Through qualifying' },
+  { question: 'How many consecutive matches, including qualifying, did Eala win to reach the 2025 Eastbourne final?', answer: 'Six' },
+  { question: 'Which WTA 125 tournament did Alex Eala win in 2025?', answer: 'Guadalajara' },
+  { question: 'In which country is Guadalajara, where Alex Eala won a WTA 125 title in 2025?', answer: 'Mexico' },
+  { question: 'What milestone did Eala achieve in the WTA rankings after her 2025 Miami run?', answer: 'She became the first Filipina to enter the WTA Top 100' },
+  { question: 'What was Alex Eala\'s ranking entering the 2025 Miami Open main draw?', answer: 'World No. 140' },
+  { question: 'Did Alex Eala enter the 2025 Miami Open with a wild card?', answer: 'Yes' },
+  { question: 'Which three Grand Slam champions did Eala beat during her 2025 Miami run?', answer: 'Jelena Ostapenko, Madison Keys and Iga Swiatek' },
+  { question: 'Which of Eala\'s 2025 Miami victims had won the 2017 Roland Garros title?', answer: 'Jelena Ostapenko' },
+  { question: 'Which of Eala\'s 2025 Miami victims had won the 2025 Australian Open?', answer: 'Madison Keys' },
+  { question: 'Which of Eala\'s 2025 Miami victims was a former world No. 1?', answer: 'Iga Swiatek' },
+  { question: 'Was Alex Eala\'s 2025 Miami semifinal run at a WTA 250, WTA 500 or WTA 1000 event?', answer: 'WTA 1000' },
+  { question: 'Which Grand Slam did Alex Eala first enter at senior level through qualifying in 2023?', answer: 'Australian Open' },
+  { question: 'In what year did Alex Eala first enter a senior Grand Slam qualifying draw?', answer: '2023' },
+  { question: 'Which Grand Slam is played at Melbourne Park, where Eala first entered senior major qualifying?', answer: 'Australian Open' },
+  { question: 'Which Grand Slam is played on clay and hosted Eala\'s 2020 junior singles semifinal?', answer: 'Roland Garros' },
+  { question: 'Which city hosts Roland Garros?', answer: 'Paris' },
+  { question: 'Which city hosts the US Open, where Eala became a junior singles champion?', answer: 'New York City' },
+  { question: 'At which venue is the US Open played?', answer: 'USTA Billie Jean King National Tennis Center' },
+  { question: 'Which borough of New York City hosts the US Open?', answer: 'Queens' },
+  { question: 'Which major is played on grass and gave Eala her 2025 main-draw debut on Centre Court?', answer: 'Wimbledon' },
+  { question: 'In which city is Wimbledon played?', answer: 'London' },
+  { question: 'What is the first name in Alexandra Eala\'s commonly used nickname?', answer: 'Alex' },
+  { question: 'What is Alex Eala\'s full first name?', answer: 'Alexandra' },
+  { question: 'What is Alex Eala\'s middle name?', answer: 'Maniego' },
+  { question: 'In what year was Alex Eala born?', answer: '2005' },
+  { question: 'In what month was Alex Eala born?', answer: 'May' },
+  { question: 'On what date is Alex Eala\'s birthday?', answer: 'May 23' },
+  { question: 'What sport did Alex Eala\'s mother compete in at the Southeast Asian Games?', answer: 'Swimming' },
+  { question: 'What is the first name of Alex Eala\'s mother?', answer: 'Rizza' },
+  { question: 'What is the first name of Alex Eala\'s father?', answer: 'Mike' },
+  { question: 'Which international team competition has Alex Eala represented the Philippines in?', answer: 'Billie Jean King Cup' },
+  { question: 'What was the Fed Cup renamed to in women\'s international team tennis?', answer: 'Billie Jean King Cup' },
+  { question: 'Which organization runs the women\'s professional tour on which Alex Eala competes?', answer: 'WTA' },
+  { question: 'What does WTA stand for?', answer: 'Women\'s Tennis Association' },
+  { question: 'Which organization runs the World Tennis Tour events where Eala won early professional titles?', answer: 'ITF' },
+  { question: 'What does ITF stand for?', answer: 'International Tennis Federation' },
+  { question: 'Which 2024 award named Alex Eala one of its Athletes of the Year alongside Sarina Bolden?', answer: 'Women in Sports Awards' },
+  { question: 'Which Filipina footballer shared Athlete of the Year honors with Alex Eala at the 2024 Women in Sports Awards?', answer: 'Sarina Bolden' },
+  { question: 'Which regional games named Alex Eala a Philippine flag-bearer for its 2025 opening ceremony?', answer: 'Southeast Asian Games' },
+  { question: 'In which country were the 2025 Southeast Asian Games held?', answer: 'Thailand' },
+  { question: 'What medal did Alex Eala win in women\'s singles at the 2025 Southeast Asian Games?', answer: 'Gold' },
+  { question: 'In which city did Eala win the 2025 SEA Games women\'s singles gold medal?', answer: 'Bangkok' },
+  { question: 'What long Philippine drought did Eala end with her 2025 SEA Games women\'s singles gold?', answer: 'A 26-year gold-medal drought in SEA Games women\'s singles tennis' },
+  { question: 'How many years after the Philippines\' previous SEA Games women\'s singles tennis gold did Eala win in 2025?', answer: '26 years' }
 ];
 
-function localDateKey(date = new Date()) {
-  const y=date.getFullYear(),m=String(date.getMonth()+1).padStart(2,'0'),d=String(date.getDate()).padStart(2,'0');
-  return `${y}-${m}-${d}`;
+function localDayNumber(date = new Date()) {
+  return Math.floor(new Date(date.getFullYear(), date.getMonth(), date.getDate()).getTime() / 86400000);
 }
-function dayNumber(date = new Date()) {return Math.floor(new Date(date.getFullYear(),date.getMonth(),date.getDate()).getTime()/86400000)}
-const EALA_GRID=DAILY_PERSON_GRIDS[Math.abs(dayNumber())%DAILY_PERSON_GRIDS.length];
-const GRID_DATE_KEY=localDateKey();
-const GRID_STORAGE_KEY=`eala-grid-progress-v2-${GRID_DATE_KEY}`;
-const triviaCells=[...document.querySelectorAll('.trivia-cell')],answerDialog=document.querySelector('#answer-dialog'),answerForm=document.querySelector('#answer-form'),answerInput=document.querySelector('#answer-input'),answerClue=document.querySelector('#answer-clue'),answerEra=document.querySelector('#answer-era'),answerFeedback=document.querySelector('#answer-feedback'),answerSkip=document.querySelector('#answer-skip'),gridScore=document.querySelector('#grid-score'),gridStatus=document.querySelector('#grid-status'),gridReveal=document.querySelector('#grid-reveal'),gridReset=document.querySelector('#grid-reset'),dailyGridMeta=document.querySelector('#daily-grid-meta');
-let activeTriviaCell=null; const solvedTriviaCells=new Set(); const solvedTriviaAnswers={}; let revealedToday=false;
-function normalizeTriviaAnswer(v){return String(v||'').normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase().replace(/[^a-z0-9]+/g,' ').trim()}
-function lastNameOf(v){const parts=normalizeTriviaAnswer(v).split(' ').filter(Boolean);return parts[parts.length-1]||''}
-function usedPlayers(exceptCell=''){return new Set(Object.entries(solvedTriviaAnswers).filter(([k])=>k!==exceptCell).map(([,v])=>normalizeTriviaAnswer(v)))}
-function saveGridProgress(){try{localStorage.setItem(GRID_STORAGE_KEY,JSON.stringify({answers:solvedTriviaAnswers,revealed:revealedToday}))}catch(e){}}
-function loadGridProgress(){try{const saved=JSON.parse(localStorage.getItem(GRID_STORAGE_KEY)||'{}');Object.entries(saved.answers||{}).forEach(([k,v])=>{if(EALA_GRID.cells[k]&&(EALA_GRID.cells[k]||[]).some(a=>normalizeTriviaAnswer(a)===normalizeTriviaAnswer(v))){solvedTriviaAnswers[k]=v;solvedTriviaCells.add(k)}});revealedToday=Boolean(saved.revealed)}catch(e){}}
-function updateGridScore(){if(gridScore)gridScore.textContent=`${solvedTriviaCells.size}/9`;if(gridStatus&&solvedTriviaCells.size===9)gridStatus.textContent='Immaculate: 9/9. Nine different players used.'}
-function cellClue(key){const m=key.match(/r(\d)c(\d)/);return `${EALA_GRID.rows[+m[1]]} AND ${EALA_GRID.cols[+m[2]]}`}
-function matchingAnswers(answers,rawGuess){const guess=normalizeTriviaAnswer(rawGuess);if(!guess)return[];return answers.filter(a=>normalizeTriviaAnswer(a)===guess||lastNameOf(a)===guess)}
-function hasNineUniqueSolution(grid){const keys=Object.keys(grid.cells).sort((a,b)=>(grid.cells[a]?.length||0)-(grid.cells[b]?.length||0));const used=new Set();function search(i){if(i===keys.length)return true;for(const name of grid.cells[keys[i]]||[]){const n=normalizeTriviaAnswer(name);if(used.has(n))continue;used.add(n);if(search(i+1))return true;used.delete(n)}return false}return search(0)}
-DAILY_PERSON_GRIDS.forEach((g,i)=>{if(!hasNineUniqueSolution(g))console.error(`Daily Eala grid ${i+1} has no nine-player unique solution.`)});
-function renderDailyGrid(){
-  document.querySelectorAll('[data-row]').forEach((el,i)=>el.textContent=EALA_GRID.rows[i]);
-  document.querySelectorAll('[data-col]').forEach((el,i)=>el.textContent=EALA_GRID.cols[i]);
-  triviaCells.forEach(cell=>{const answers=EALA_GRID.cells[cell.dataset.cell]||[];const q=cell.querySelector('.cell-question'),ans=cell.querySelector('.cell-answer');cell.classList.remove('correct','revealed');if(ans)ans.textContent='';if(q)q.style.display='block';if(solvedTriviaCells.has(cell.dataset.cell)){cell.classList.add('correct');if(q)q.style.display='none';if(ans)ans.textContent=solvedTriviaAnswers[cell.dataset.cell]||answers[0]}else if(revealedToday){cell.classList.add('revealed');if(q)q.style.display='none';if(ans)ans.textContent=answers[0]}});
-  const date=new Date();if(dailyGridMeta)dailyGridMeta.textContent=`Daily Grid · ${date.toLocaleDateString(undefined,{weekday:'long',month:'long',day:'numeric',year:'numeric'})}`;
-  if(gridStatus)gridStatus.textContent=revealedToday?'Answers revealed for today. A new grid appears tomorrow.':'Select a square to play. Last names are accepted; each player can be used only once.';updateGridScore();
+
+const triviaButton = document.querySelector('#daily-trivia-question');
+if (triviaButton && DAILY_EALA_TRIVIA.length) {
+  const item = DAILY_EALA_TRIVIA[Math.abs(localDayNumber()) % DAILY_EALA_TRIVIA.length];
+  let revealed = false;
+  triviaButton.textContent = item.question;
+  triviaButton.setAttribute('aria-label', `${item.question} Click to reveal answer.`);
+  triviaButton.addEventListener('click', () => {
+    revealed = !revealed;
+    triviaButton.textContent = revealed ? item.answer : item.question;
+    triviaButton.setAttribute('aria-label', revealed ? `${item.answer}. Click to show question.` : `${item.question} Click to reveal answer.`);
+  });
 }
-function openTriviaCell(cell){if(!answerDialog||cell.classList.contains('correct')||cell.classList.contains('revealed'))return;activeTriviaCell=cell;answerEra.textContent='PERSON';answerClue.textContent=cellClue(cell.dataset.cell);answerInput.value='';answerFeedback.textContent='';answerFeedback.className='answer-feedback';answerDialog.showModal();requestAnimationFrame(()=>answerInput.focus())}
-triviaCells.forEach(cell=>cell.addEventListener('click',()=>openTriviaCell(cell)));
-if(answerForm)answerForm.addEventListener('submit',event=>{event.preventDefault();if(!activeTriviaCell)return;const cellKey=activeTriviaCell.dataset.cell,answers=EALA_GRID.cells[cellKey]||[],matches=matchingAnswers(answers,answerInput.value);if(matches.length===0){answerFeedback.textContent='Not quite. Try another player or skip this square.';answerFeedback.className='answer-feedback bad';return}const distinctMatches=[...new Map(matches.map(a=>[normalizeTriviaAnswer(a),a])).values()];if(distinctMatches.length>1){answerFeedback.textContent='That last name matches more than one valid player here. Please enter the full name.';answerFeedback.className='answer-feedback bad';return}const matched=distinctMatches[0],norm=normalizeTriviaAnswer(matched),used=usedPlayers(cellKey);if(used.has(norm)){answerFeedback.textContent=`${matched} is correct for this square, but you already used that player. Each player may be used only once.`;answerFeedback.className='answer-feedback bad';return}activeTriviaCell.classList.add('correct');activeTriviaCell.classList.remove('revealed');activeTriviaCell.querySelector('.cell-question').style.display='none';activeTriviaCell.querySelector('.cell-answer').textContent=matched;solvedTriviaCells.add(cellKey);solvedTriviaAnswers[cellKey]=matched;saveGridProgress();updateGridScore();answerFeedback.textContent='Correct.';answerFeedback.className='answer-feedback good';setTimeout(()=>answerDialog.close(),450)});
-if(answerSkip)answerSkip.addEventListener('click',()=>answerDialog.close());
-if(gridReveal)gridReveal.addEventListener('click',()=>{revealedToday=true;triviaCells.forEach(cell=>{if(!cell.classList.contains('correct'))cell.classList.add('revealed');cell.querySelector('.cell-question').style.display='none';cell.querySelector('.cell-answer').textContent=solvedTriviaAnswers[cell.dataset.cell]||(EALA_GRID.cells[cell.dataset.cell]||[])[0]||''});gridStatus.textContent='Answers revealed for today. A new grid appears tomorrow.';saveGridProgress()});
-if(gridReset)gridReset.addEventListener('click',()=>{solvedTriviaCells.clear();Object.keys(solvedTriviaAnswers).forEach(k=>delete solvedTriviaAnswers[k]);revealedToday=false;try{localStorage.removeItem(GRID_STORAGE_KEY)}catch(e){}renderDailyGrid()});
-loadGridProgress();renderDailyGrid();

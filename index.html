@@ -11,7 +11,7 @@
   <title>Eala Fan Hub — Alex Eala News</title>
   <link rel="icon" href="favicon.svg" type="image/svg+xml" />
   <link rel="manifest" href="site.webmanifest" />
-  <link rel="stylesheet" href="styles.css?v=20261025-7" />
+  <link rel="stylesheet" href="styles.css?v=20261027-12" />
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
@@ -25,7 +25,7 @@
       </a>
       <nav aria-label="Primary navigation">
         <a href="#resources">Links</a>
-        <a href="#grid-game">Grid</a>
+        <a href="#trivia">Trivia</a>
         <a href="#news">News</a>
         <a href="#social">Social</a>
         <a href="#about">About</a>
@@ -64,22 +64,6 @@
       </div>
     </section>
 
-
-    <dialog class="answer-dialog" id="answer-dialog">
-      <form method="dialog" class="answer-card" id="answer-form">
-        <button class="dialog-close" value="cancel" aria-label="Close">×</button>
-        <p class="eyebrow blue" id="answer-era">EALA GRID</p>
-        <h3 id="answer-clue">Trivia clue</h3>
-        <label for="answer-input">Your answer</label>
-        <input id="answer-input" type="text" autocomplete="off" spellcheck="false" placeholder="Type your answer…" />
-        <p class="answer-feedback" id="answer-feedback" aria-live="polite"></p>
-        <div class="answer-actions">
-          <button class="button primary" id="answer-submit" type="submit" value="default">Submit answer</button>
-          <button class="button secondary" type="button" id="answer-skip">Skip</button>
-        </div>
-      </form>
-    </dialog>
-
     <section class="news-section" id="news">
       <div class="wrap">
         <div class="section-heading">
@@ -101,49 +85,6 @@
       </div>
     </section>
 
-
-    <section class="grid-section" id="grid-game">
-      <div class="wrap">
-        <div class="section-heading grid-heading">
-          <div>
-            <h2>Alex Eala Immaculate Grid</h2>
-            <p class="daily-grid-meta" id="daily-grid-meta" aria-live="polite"></p>
-          </div>
-          <div class="grid-score" aria-live="polite"><strong id="grid-score">0/9</strong><span>correct</span></div>
-        </div>
-
-        <div class="trivia-grid-shell">
-          <div class="trivia-grid" id="trivia-grid" aria-label="Alex Eala trivia grid">
-            <div class="grid-corner"><strong>Alex Eala</strong></div>
-            <div class="grid-col-head" data-col="col-0"></div>
-            <div class="grid-col-head" data-col="col-1"></div>
-            <div class="grid-col-head" data-col="col-2"></div>
-
-            <div class="grid-row-head" data-row="row-0"></div>
-            <button class="trivia-cell" data-cell="r0c0" type="button"><span class="cell-question">?</span><span class="cell-answer"></span></button>
-            <button class="trivia-cell" data-cell="r0c1" type="button"><span class="cell-question">?</span><span class="cell-answer"></span></button>
-            <button class="trivia-cell" data-cell="r0c2" type="button"><span class="cell-question">?</span><span class="cell-answer"></span></button>
-
-            <div class="grid-row-head" data-row="row-1"></div>
-            <button class="trivia-cell" data-cell="r1c0" type="button"><span class="cell-question">?</span><span class="cell-answer"></span></button>
-            <button class="trivia-cell" data-cell="r1c1" type="button"><span class="cell-question">?</span><span class="cell-answer"></span></button>
-            <button class="trivia-cell" data-cell="r1c2" type="button"><span class="cell-question">?</span><span class="cell-answer"></span></button>
-
-            <div class="grid-row-head" data-row="row-2"></div>
-            <button class="trivia-cell" data-cell="r2c0" type="button"><span class="cell-question">?</span><span class="cell-answer"></span></button>
-            <button class="trivia-cell" data-cell="r2c1" type="button"><span class="cell-question">?</span><span class="cell-answer"></span></button>
-            <button class="trivia-cell" data-cell="r2c2" type="button"><span class="cell-question">?</span><span class="cell-answer"></span></button>
-          </div>
-        </div>
-
-        <div class="grid-controls">
-          <button class="button primary" id="grid-reveal" type="button">Reveal answers</button>
-          <button class="button secondary" id="grid-reset" type="button">Reset grid</button>
-          <span id="grid-status" class="grid-status" aria-live="polite">Select a square to play.</span>
-        </div>
-      </div>
-    </section>
-
     <section class="social-section simple-social-section" id="social">
       <div class="wrap">
         <div class="section-heading compact">
@@ -155,6 +96,14 @@
           <a href="https://x.com/DYANCASTILLEJO?lang=en" target="_blank" rel="noopener noreferrer">Castillejo on X</a>
           <a href="https://x.com/search?q=eala&amp;src=typed_query&amp;f=live" target="_blank" rel="noopener noreferrer">Latest Eala Content on X</a>
         </div>
+      </div>
+    </section>
+
+
+    <section class="daily-trivia-section" id="trivia">
+      <div class="wrap">
+        <h2>Eala Trivia Question of the Day</h2>
+        <button class="daily-trivia-question" id="daily-trivia-question" type="button" aria-live="polite"></button>
       </div>
     </section>
 
@@ -175,11 +124,11 @@
   <footer>
     <div class="wrap footer-grid">
       <div><strong>EALA FAN HUB</strong><p>For the fans. Para sa Pilipinas.</p></div>
-      <p>By A &amp; A · <span id="year"></span></p>
+      <p>By A &amp; A · <span id="year"></span> · <a href="mailto:AandA.AlexForever@outlook.com">Contact</a></p>
     </div>
   </footer>
 
   <noscript><div class="noscript">JavaScript is required for the automatic news feed. <a href="https://news.google.com/search?q=%22Alex%20Eala%22">Open Google News instead.</a></div></noscript>
-  <script src="app.js?v=20261025-9" defer></script>
+  <script src="app.js?v=20261027-12" defer></script>
 </body>
 </html>
