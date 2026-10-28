@@ -424,3 +424,65 @@ nav a:hover, .eyebrow.blue, h1 span, .news-card .source,
 .daily-trivia-section h2 { color: #145c32; }
 footer { background: #0d4f2a; border-top-color: #78a85e; }
 footer p { color: #d5e6d9; }
+
+/* v20: screenshot-inspired green selected layout */
+.site-header { background:#0d4f2a; color:#fff; position:sticky; top:0; z-index:30; }
+.flag-bar { display:none; }
+.nav-wrap { min-height:92px; }
+.brand { color:#fff; gap:18px; }
+.brand-mark { display:none; }
+.home-label { padding-right:18px; border-right:2px solid rgba(255,255,255,.75); font-size:18px; }
+.site-title { display:flex; flex-direction:column; line-height:1.05; }
+.site-title strong { font-size:27px; letter-spacing:-.02em; }
+.site-title em { margin-top:5px; font-size:13px; font-weight:500; font-style:italic; opacity:.9; }
+nav a { color:#fff; }
+nav a:hover { color:#d7f0dd; }
+.hero { display:none; }
+
+.daily-trivia-section { padding:28px 0 24px; background:#edf7ef; border-bottom:1px solid #c9dfce; }
+.daily-trivia-layout { max-width:1180px; min-height:320px; padding:24px 34px; gap:34px; align-items:center; background:#f8fcf8; border:2px solid #a8cdb1; border-radius:22px; box-shadow:0 8px 24px rgba(13,79,42,.08); }
+.eala-saurus { width:280px; height:280px; flex:0 0 280px; object-fit:contain; border-right:2px solid #7bb28a; padding-right:26px; }
+.daily-trivia-copy { min-width:0; }
+.daily-trivia-section h2 { margin:0 0 20px; color:#0d4f2a; font-size:clamp(32px,4vw,56px); line-height:1.04; font-style:italic; letter-spacing:-.035em; }
+.daily-trivia-question { margin:0 0 24px; font-size:clamp(24px,3vw,40px); line-height:1.22; color:#111; }
+.daily-trivia-reveal { display:inline-block; padding:14px 28px; border-radius:14px; background:#176b3a; color:#fff !important; font-size:27px; font-weight:900; text-decoration:none; }
+.daily-trivia-reveal:hover,.daily-trivia-reveal:focus-visible { background:#0d4f2a; color:#fff; }
+.daily-trivia-reveal.is-revealed,.daily-trivia-reveal.is-revealed:disabled { background:transparent; color:#0d4f2a !important; padding-left:0; }
+
+.selected-content-grid { display:grid; grid-template-columns:360px minmax(0,1fr); gap:24px; padding-top:26px; padding-bottom:34px; align-items:start; }
+.selected-content-grid .resources-section,.selected-content-grid .news-section { padding:0; border:1px solid #b9d3c0; border-radius:18px; overflow:hidden; background:#fff; }
+.selected-content-grid .resources-section .wrap,.selected-content-grid .news-section .wrap { width:auto; max-width:none; padding:0; }
+.selected-content-grid .section-heading { margin:0; padding:18px 22px; background:#edf7ef; border-bottom:1px solid #c9dfce; }
+.selected-content-grid .section-heading h2 { color:#0d4f2a; font-size:25px; font-style:italic; }
+.selected-content-grid .section-heading .eyebrow { display:none; }
+.resource-links { padding:12px 22px 20px; }
+.resource-links a { font-size:17px; }
+.selected-content-grid .feed-meta { padding:12px 22px 0; }
+.selected-content-grid .news-grid { grid-template-columns:1fr; gap:0; padding:0 22px 18px; }
+.selected-content-grid .news-card { min-height:0; border:0; border-bottom:1px solid #dce9df; border-radius:0; padding:18px 0; box-shadow:none; }
+.selected-content-grid .news-card:hover { transform:none; box-shadow:none; }
+.selected-content-grid .news-card h3 { margin:7px 0 9px; font-size:20px; }
+.selected-content-grid .feed-fallback { margin:18px 22px; }
+.refresh { margin-right:0; }
+
+.site-header::after { content:""; width:154px; height:68px; flex:none; position:absolute; right:max(20px,calc((100vw - 1200px)/2)); top:12px; background:url('eala-flag-sampaguita-rect.png') center/contain no-repeat; }
+.nav-wrap nav { padding-right:170px; }
+
+.simple-social-section { padding-top:52px; }
+@media(max-width:900px){
+  .site-title { display:none; }
+  .site-header::after { width:110px; height:50px; top:20px; }
+  .nav-wrap nav { padding-right:115px; }
+  .daily-trivia-layout { min-height:0; }
+  .eala-saurus { width:190px; height:190px; flex-basis:190px; }
+  .selected-content-grid { grid-template-columns:1fr; }
+}
+@media(max-width:650px){
+  .nav-wrap { min-height:76px; }
+  .site-header::after { display:none; }
+  .nav-wrap nav { padding-right:0; }
+  .daily-trivia-layout { flex-direction:column; padding:20px; text-align:left; }
+  .eala-saurus { width:150px; height:150px; flex-basis:150px; border-right:0; border-bottom:2px solid #7bb28a; padding:0 0 14px; }
+  .daily-trivia-section h2 { font-size:31px; }
+  .daily-trivia-question { font-size:23px; }
+}
