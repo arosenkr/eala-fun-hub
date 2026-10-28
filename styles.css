@@ -33,7 +33,7 @@ nav a { text-decoration: none; color: #344054; font-size: 14px; font-weight: 700
 nav a:hover { color: var(--blue); }
 .hero { background: linear-gradient(122deg, #f7faff 0%, #fff 50%, #fff8f8 100%); border-bottom: 1px solid var(--line); overflow: hidden; }
 .hero-grid { min-height: 575px; display: grid; grid-template-columns: 1.3fr .7fr; align-items: center; gap: 70px; padding: 76px 0; position: relative; }
-.hero-grid::before { content: ""; position: absolute; width: 360px; height: 360px; border-radius: 50%; background: var(--yellow); opacity: .09; right: -100px; top: 40px; }
+.hero-grid::before { content: ""; position: absolute; width: 330px; height: 330px; right: -74px; top: 34px; background: url("eala-matte-flag-sampaguita-512.png") center/contain no-repeat; opacity: .14; filter: saturate(.75) brightness(1.12); }
 .hero-grid::after { content: ""; position: absolute; width: 500px; height: 140px; background: var(--blue); opacity: .04; transform: rotate(-12deg); left: -180px; bottom: 30px; }
 .eyebrow { margin: 0 0 18px; color: var(--red); font-size: 12px; line-height: 1; font-weight: 900; letter-spacing: .18em; }
 .eyebrow.blue { color: var(--blue); }
@@ -326,6 +326,20 @@ footer p { color: #aebbd6; margin: 7px 0 0; font-size: 13px; }
   background: #fff;
   border-bottom: 1px solid var(--line);
 }
+.daily-trivia-layout {
+  display: flex;
+  align-items: flex-start;
+  gap: 22px;
+}
+.eala-saurus {
+  width: 118px;
+  height: 118px;
+  flex: 0 0 118px;
+  object-fit: contain;
+}
+.daily-trivia-copy {
+  min-width: 0;
+}
 .daily-trivia-section h2 {
   margin: 0 0 24px;
   font-size: clamp(30px, 4vw, 48px);
@@ -353,7 +367,7 @@ footer p { color: #aebbd6; margin: 7px 0 0; font-size: 13px; }
   background: transparent;
   color: var(--blue);
   font: inherit;
-  font-size: 18px;
+  font-size: 22px;
   font-weight: 800;
   text-decoration: underline;
   text-underline-offset: 3px;
@@ -378,4 +392,7 @@ footer a {
 @media (max-width: 560px) {
   #trivia { scroll-margin-top: 80px; }
   .daily-trivia-section { padding: 62px 0 68px; }
+  .daily-trivia-layout { gap: 14px; }
+  .eala-saurus { width: 84px; height: 84px; flex-basis: 84px; }
+  .daily-trivia-reveal { font-size: 20px; }
 }

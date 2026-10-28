@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#0038A8" />
+  <meta name="description" content="Eala Fan Hub — an independent, mobile-friendly fan site for Alex Eala news, results, statistics, records, and social links." />
+  <meta property="og:title" content="Eala Fan Hub" />
+  <meta property="og:description" content="Alex Eala resources and the latest headlines, refreshed automatically." />
+  <meta property="og:type" content="website" />
+  <title>Eala Fan Hub — Alex Eala News</title>
+  <link rel="icon" href="eala-matte-flag-sampaguita-64.png?v=16" type="image/png" sizes="64x64" />
+  <link rel="shortcut icon" href="eala-matte-flag-sampaguita-v16.ico?v=16" type="image/x-icon" />
+  <link rel="apple-touch-icon" href="eala-matte-flag-sampaguita-180.png?v=16" sizes="180x180" />
+  <link rel="manifest" href="site.webmanifest" />
+  <link rel="stylesheet" href="styles.css?v=20261027-12" />
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <div class="flag-bar" aria-hidden="true"><span></span><span></span></div>
+    <div class="wrap nav-wrap">
+      <a class="brand" href="#top" aria-label="Home">
+        <span class="brand-mark" aria-hidden="true"><span class="sun">✦</span></span>
+        <span class="home-label"><strong>Home</strong></span>
+      </a>
+      <nav aria-label="Primary navigation">
+        <a href="#resources">Links</a>
+        <a href="#trivia">Trivia</a>
+        <a href="#news">News</a>
+        <a href="#social">Social</a>
+        <a href="#about">About</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero" id="top">
+      <div class="wrap hero-grid hero-grid-single">
+        <div class="hero-copy">
+          <p class="eyebrow">INDEPENDENT ALEX EALA FAN SITE</p>
+          <h1>All the Alex Eala news.<br><span>One clean feed.</span></h1>
+          <p class="lede">Fresh headlines from around the web, plus quick links to results, statistics, records, and social media.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="resources-section" id="resources">
+      <div class="wrap">
+        <div class="section-heading compact">
+          <h2>Profiles, results &amp; records</h2>
+        </div>
+
+        <div class="simple-link-list resource-links" aria-label="Alex Eala profiles, results and records">
+          <a href="https://www.wtatennis.com/players/330332/alexandra-eala" target="_blank" rel="noopener noreferrer">Official WTA profile</a>
+          <a href="https://www.espn.com/tennis/player/results/_/id/7759/alexandra-eala" target="_blank" rel="noopener noreferrer">Recent tournaments</a>
+          <a href="https://www.wtatennis.com/players/330332/alexandra-eala/stats#main-content" target="_blank" rel="noopener noreferrer">Statistics</a>
+          <a href="https://live-tennis.eu/en/wta-live-ranking" target="_blank" rel="noopener noreferrer">Live rankings</a>
+          <div class="simple-link-label">Best results:</div>
+          <a class="result-level" href="https://www.wtatennis.com/players/330332/alexandra-eala/record" target="_blank" rel="noopener noreferrer">Grand Slams</a>
+          <a class="result-level" href="https://www.wtatennis.com/players/330332/alexandra-eala/record?level=wta-1000" target="_blank" rel="noopener noreferrer">WTA 1000</a>
+          <a class="result-level" href="https://www.wtatennis.com/players/330332/alexandra-eala/record?level=wta-500" target="_blank" rel="noopener noreferrer">WTA 500</a>
+          <a class="result-level" href="https://www.wtatennis.com/players/330332/alexandra-eala/record?level=wta-250" target="_blank" rel="noopener noreferrer">WTA 250</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="news-section" id="news">
+      <div class="wrap">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow blue">LATEST COVERAGE</p>
+            <h2>Alex Eala in the news</h2>
+          </div>
+          <button class="refresh" id="refresh-button" type="button" aria-label="Refresh news">↻ Refresh</button>
+        </div>
+
+        <div class="feed-meta" id="feed-meta" aria-live="polite">Fetching the latest headlines…</div>
+        <div class="news-grid" id="news-grid" aria-live="polite" aria-busy="true"></div>
+
+        <div class="feed-fallback" id="feed-fallback" hidden>
+          <h3>Live feed temporarily unavailable</h3>
+          <p>You can still open a current Google News search for Alex Eala.</p>
+          <a class="button primary" href="https://news.google.com/search?q=%22Alex%20Eala%22&hl=en-US&gl=US&ceid=US%3Aen" target="_blank" rel="noopener noreferrer">Open Google News ↗</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="social-section simple-social-section" id="social">
+      <div class="wrap">
+        <div class="section-heading compact">
+          <h2>Eala Social Media</h2>
+        </div>
+        <div class="simple-link-list social-link-list" aria-label="Eala social media">
+          <a href="https://www.instagram.com/alex.eala/?hl=en" target="_blank" rel="noopener noreferrer">Eala on Instagram</a>
+          <a href="https://www.instagram.com/dyancastillejo/?hl=en" target="_blank" rel="noopener noreferrer">Castillejo on Instagram</a>
+          <a href="https://x.com/DYANCASTILLEJO?lang=en" target="_blank" rel="noopener noreferrer">Castillejo on X</a>
+          <a href="https://x.com/search?q=eala&amp;src=typed_query&amp;f=live" target="_blank" rel="noopener noreferrer">Latest Eala Content on X</a>
+        </div>
+      </div>
+    </section>
+
+
+    <section class="daily-trivia-section" id="trivia">
+      <div class="wrap">
+        <h2>Eala Trivia Question of the Day</h2>
+        <p class="daily-trivia-question" id="daily-trivia-question"></p>
+        <button class="daily-trivia-reveal" id="daily-trivia-reveal" type="button" aria-live="polite">Reveal Answer</button>
+      </div>
+    </section>
+
+    <section class="about-section" id="about">
+      <div class="wrap about-grid">
+        <div>
+          <p class="eyebrow red">ABOUT THIS SITE</p>
+          <h2>Built for fans, not affiliated with Alex Eala or the WTA.</h2>
+        </div>
+        <div class="about-copy">
+          <p>Eala Fan Hub is an independent, non-commercial fan project. It displays headlines and source names, then sends readers to the original publisher. It does not republish full articles or claim ownership of publisher content.</p>
+          <p>The automatic feed depends on a public RSS endpoint and can occasionally be delayed, incomplete, or unavailable. Always verify breaking information with the linked source.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap footer-grid">
+      <div><strong>EALA FAN HUB</strong><p>For the fans. Para sa Pilipinas.</p></div>
+      <p>By A &amp; A · <span id="year"></span> · <a href="mailto:AandA.AlexForever@outlook.com">Contact</a></p>
+    </div>
+  </footer>
+
+  <noscript><div class="noscript">JavaScript is required for the automatic news feed. <a href="https://news.google.com/search?q=%22Alex%20Eala%22">Open Google News instead.</a></div></noscript>
+  <script src="app.js?v=20261027-12" defer></script>
+</body>
+</html>
