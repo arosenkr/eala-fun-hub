@@ -53,3 +53,10 @@ footer{background:var(--green-dark);color:#fff;padding:24px 0;border-top:4px sol
 @media(max-width:1020px){.header-emblem{display:block;width:184px;height:78px}.brand-banner-inner{min-height:124px}.site-header nav{gap:22px}}
 @media(max-width:760px){.nav-wrap{min-height:56px;display:flex;gap:14px;overflow:hidden}.home-link{font-size:15px}.site-header nav{overflow-x:auto;white-space:nowrap;gap:15px;scrollbar-width:none}.site-header nav::-webkit-scrollbar{display:none}.site-header nav a{font-size:13px;flex:0 0 auto}.brand-banner-inner{min-height:106px;gap:14px;padding-top:14px;padding-bottom:14px}.brand-block{display:flex}.brand-block strong{font-size:34px}.brand-block span{font-size:16px;margin-top:6px}.header-emblem{display:block;width:120px;height:58px}.social-link-list .social-row img{width:25px;height:25px;flex-basis:25px}}
 @media(max-width:470px){.brand-banner-inner{align-items:center}.brand-block strong{font-size:29px}.brand-block span{font-size:14px}.header-emblem{width:94px;height:46px}.site-header nav{gap:12px}.site-header nav a{font-size:12px}}
+
+/* v23: refined trivia scale and unframed header emblem */
+.daily-trivia-copy h1{font-size:clamp(30px,3.45vw,47px)}
+.daily-trivia-question{font-size:clamp(20px,2.15vw,31px)}
+.daily-trivia-reveal{font-size:21px;padding:11px 23px}
+.header-emblem{background:transparent!important;box-shadow:none!important;border:0!important;border-radius:0!important;padding:0!important;filter:none!important}
+@media(max-width:760px){.daily-trivia-copy h1{font-size:28px}.daily-trivia-question{font-size:19px}.daily-trivia-reveal{font-size:18px;padding:10px 19px}}
