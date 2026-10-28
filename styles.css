@@ -344,11 +344,31 @@ footer p { color: #aebbd6; margin: 7px 0 0; font-size: 13px; }
   line-height: 1.35;
   font-weight: 800;
   text-align: left;
+  cursor: default;
+  margin: 0 0 18px;
+}
+.daily-trivia-reveal {
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: var(--blue);
+  font: inherit;
+  font-size: 18px;
+  font-weight: 800;
+  text-decoration: underline;
+  text-underline-offset: 3px;
   cursor: pointer;
 }
-.daily-trivia-question:hover,
-.daily-trivia-question:focus-visible {
-  color: var(--blue);
+.daily-trivia-reveal:hover,
+.daily-trivia-reveal:focus-visible {
+  color: var(--ink);
+}
+.daily-trivia-reveal.is-revealed,
+.daily-trivia-reveal.is-revealed:disabled {
+  color: var(--ink);
+  text-decoration: none;
+  cursor: default;
+  opacity: 1;
 }
 footer a {
   color: inherit;

@@ -5,5 +5,12 @@
   "display": "standalone",
   "background_color": "#ffffff",
   "theme_color": "#0038A8",
-  "description": "Independent Alex Eala fan news hub."
+  "description": "Independent Alex Eala fan news hub.",
+  "icons": [
+    {
+      "src": "sampaguita-tennis-favicon.png",
+      "sizes": "64x64",
+      "type": "image/png"
+    }
+  ]
 }

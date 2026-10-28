@@ -245,15 +245,14 @@ function localDayNumber(date = new Date()) {
   return Math.floor(new Date(date.getFullYear(), date.getMonth(), date.getDate()).getTime() / 86400000);
 }
 
-const triviaButton = document.querySelector('#daily-trivia-question');
-if (triviaButton && DAILY_EALA_TRIVIA.length) {
+const triviaQuestion = document.querySelector('#daily-trivia-question');
+const triviaReveal = document.querySelector('#daily-trivia-reveal');
+if (triviaQuestion && triviaReveal && DAILY_EALA_TRIVIA.length) {
   const item = DAILY_EALA_TRIVIA[Math.abs(localDayNumber()) % DAILY_EALA_TRIVIA.length];
-  let revealed = false;
-  triviaButton.textContent = item.question;
-  triviaButton.setAttribute('aria-label', `${item.question} Click to reveal answer.`);
-  triviaButton.addEventListener('click', () => {
-    revealed = !revealed;
-    triviaButton.textContent = revealed ? item.answer : item.question;
-    triviaButton.setAttribute('aria-label', revealed ? `${item.answer}. Click to show question.` : `${item.question} Click to reveal answer.`);
-  });
+  triviaQuestion.textContent = item.question;
+  triviaReveal.addEventListener('click', () => {
+    triviaReveal.textContent = item.answer;
+    triviaReveal.disabled = true;
+    triviaReveal.classList.add('is-revealed');
+  }, { once: true });
 }
