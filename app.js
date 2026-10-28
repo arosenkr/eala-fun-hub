@@ -150,53 +150,71 @@ setInterval(() => loadNews(), 10 * 60 * 1000);
 const DAILY_PERSON_GRIDS = [
   {
     rows:[
-      'Defeated by Alex Eala during her 2025 Miami Open semifinal run',
-      'A Grand Slam singles champion whom Alex Eala has defeated',
-      'A player Alex Eala defeated at the 2025 Miami Open'
+      'Played Alex Eala in the 2025 Miami Open singles main draw',
+      'Played Alex Eala in the 2026 Berlin Tennis Open singles main draw',
+      'Played Alex Eala in the 2026 Wimbledon singles main draw'
     ],
     cols:[
-      'Has won a Grand Slam singles title',
-      'Has been ranked inside the WTA singles Top 10',
-      'Represented the United States in professional tennis'
+      'Alex Eala defeated this player in a completed singles match at the event named in the row',
+      'This player defeated Alex Eala in a completed singles match at the event named in the row',
+      'This player was already a Grand Slam singles champion when she played Alex Eala at the event named in the row'
     ],
     cells:{
-      r0c0:['Iga Swiatek'], r0c1:['Iga Swiatek','Madison Keys'], r0c2:['Madison Keys'],
-      r1c0:['Iga Swiatek','Madison Keys','Jelena Ostapenko'], r1c1:['Iga Swiatek','Madison Keys','Jelena Ostapenko'], r1c2:['Madison Keys'],
-      r2c0:['Iga Swiatek','Madison Keys','Jelena Ostapenko'], r2c1:['Iga Swiatek','Madison Keys','Jelena Ostapenko'], r2c2:['Madison Keys']
+      r0c0:['Katie Volynets','Jelena Ostapenko','Madison Keys','Iga Swiatek'],
+      r0c1:['Jessica Pegula'],
+      r0c2:['Jelena Ostapenko','Madison Keys','Iga Swiatek'],
+      r1c0:['Donna Vekic','Elena Rybakina','Elina Svitolina'],
+      r1c1:['Linda Noskova'],
+      r1c2:['Elena Rybakina'],
+      r2c0:['Renata Zarazua','Maya Joint','Iga Swiatek'],
+      r2c1:['Jasmine Paolini'],
+      r2c2:['Iga Swiatek']
     }
   },
   {
     rows:[
-      'Played Alex Eala in a WTA 1000 main-draw match',
-      'Lost a completed singles match to Alex Eala',
-      'Played Alex Eala during the 2024 or 2025 WTA season'
+      'Played Alex Eala in the 2025 Miami Open singles main draw',
+      'Played Alex Eala in the 2026 Berlin Tennis Open singles main draw',
+      'Played Alex Eala in the 2026 Mubadala DC Open singles main draw'
     ],
     cols:[
-      'From Poland',
-      'From the United States',
-      'A Grand Slam singles champion'
+      'Alex Eala defeated this player at the event named in the row',
+      'Alex Eala defeated this player at the event named in the row while the player was ranked in the WTA Top 10',
+      'Alex Eala defeated this player at the event named in the row and the player was already a Grand Slam singles champion'
     ],
     cells:{
-      r0c0:['Iga Swiatek'], r0c1:['Madison Keys'], r0c2:['Iga Swiatek','Madison Keys','Jelena Ostapenko'],
-      r1c0:['Iga Swiatek'], r1c1:['Madison Keys'], r1c2:['Iga Swiatek','Madison Keys','Jelena Ostapenko'],
-      r2c0:['Iga Swiatek','Magda Linette'], r2c1:['Madison Keys'], r2c2:['Iga Swiatek','Madison Keys','Jelena Ostapenko']
+      r0c0:['Katie Volynets','Jelena Ostapenko','Madison Keys','Iga Swiatek'],
+      r0c1:['Madison Keys','Iga Swiatek'],
+      r0c2:['Jelena Ostapenko','Madison Keys','Iga Swiatek'],
+      r1c0:['Donna Vekic','Elena Rybakina','Elina Svitolina'],
+      r1c1:['Elena Rybakina','Elina Svitolina'],
+      r1c2:['Elena Rybakina'],
+      r2c0:['Zheng Qinwen','Leylah Fernandez','Elina Svitolina','Naomi Osaka','Jessica Pegula'],
+      r2c1:['Elina Svitolina','Jessica Pegula'],
+      r2c2:['Naomi Osaka']
     }
   },
   {
     rows:[
-      'Faced Alex Eala at the Miami Open',
-      'Was defeated by Alex Eala at a WTA 1000 tournament',
-      'Has played a professional singles match against Alex Eala'
+      'Played Alex Eala in the 2025 Miami Open singles main draw',
+      'Played Alex Eala in the 2026 Berlin Tennis Open singles main draw',
+      'Played Alex Eala in the 2026 Mubadala DC Open singles main draw'
     ],
     cols:[
-      'Has been ranked World No. 1 in WTA singles',
-      'Has won the Australian Open singles title',
-      'Has won the Roland Garros singles title'
+      'Alex Eala defeated this player in straight sets at the event named in the row',
+      'This player was ranked in the WTA Top 10 when she played Alex Eala at the event named in the row',
+      'This player was already a Grand Slam singles champion when she played Alex Eala at the event named in the row'
     ],
     cells:{
-      r0c0:['Iga Swiatek'], r0c1:['Madison Keys'], r0c2:['Iga Swiatek','Jelena Ostapenko'],
-      r1c0:['Iga Swiatek'], r1c1:['Madison Keys'], r1c2:['Iga Swiatek','Jelena Ostapenko'],
-      r2c0:['Iga Swiatek'], r2c1:['Madison Keys'], r2c2:['Iga Swiatek','Jelena Ostapenko']
+      r0c0:['Katie Volynets','Jelena Ostapenko','Madison Keys','Iga Swiatek'],
+      r0c1:['Madison Keys','Iga Swiatek','Jessica Pegula'],
+      r0c2:['Jelena Ostapenko','Madison Keys','Iga Swiatek'],
+      r1c0:['Donna Vekic','Elena Rybakina','Elina Svitolina'],
+      r1c1:['Elena Rybakina','Elina Svitolina'],
+      r1c2:['Elena Rybakina'],
+      r2c0:['Leylah Fernandez','Elina Svitolina','Naomi Osaka'],
+      r2c1:['Elina Svitolina','Jessica Pegula'],
+      r2c2:['Naomi Osaka']
     }
   }
 ];
@@ -208,25 +226,30 @@ function localDateKey(date = new Date()) {
 function dayNumber(date = new Date()) {return Math.floor(new Date(date.getFullYear(),date.getMonth(),date.getDate()).getTime()/86400000)}
 const EALA_GRID=DAILY_PERSON_GRIDS[Math.abs(dayNumber())%DAILY_PERSON_GRIDS.length];
 const GRID_DATE_KEY=localDateKey();
-const GRID_STORAGE_KEY=`eala-grid-progress-${GRID_DATE_KEY}`;
+const GRID_STORAGE_KEY=`eala-grid-progress-v2-${GRID_DATE_KEY}`;
 const triviaCells=[...document.querySelectorAll('.trivia-cell')],answerDialog=document.querySelector('#answer-dialog'),answerForm=document.querySelector('#answer-form'),answerInput=document.querySelector('#answer-input'),answerClue=document.querySelector('#answer-clue'),answerEra=document.querySelector('#answer-era'),answerFeedback=document.querySelector('#answer-feedback'),answerSkip=document.querySelector('#answer-skip'),gridScore=document.querySelector('#grid-score'),gridStatus=document.querySelector('#grid-status'),gridReveal=document.querySelector('#grid-reveal'),gridReset=document.querySelector('#grid-reset'),dailyGridMeta=document.querySelector('#daily-grid-meta');
-let activeTriviaCell=null; const solvedTriviaCells=new Set(); let revealedToday=false;
+let activeTriviaCell=null; const solvedTriviaCells=new Set(); const solvedTriviaAnswers={}; let revealedToday=false;
 function normalizeTriviaAnswer(v){return String(v||'').normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase().replace(/[^a-z0-9]+/g,' ').trim()}
-function saveGridProgress(){try{localStorage.setItem(GRID_STORAGE_KEY,JSON.stringify({solved:[...solvedTriviaCells],revealed:revealedToday}))}catch(e){}}
-function loadGridProgress(){try{const saved=JSON.parse(localStorage.getItem(GRID_STORAGE_KEY)||'{}');(saved.solved||[]).forEach(k=>solvedTriviaCells.add(k));revealedToday=Boolean(saved.revealed)}catch(e){}}
-function updateGridScore(){if(gridScore)gridScore.textContent=`${solvedTriviaCells.size}/9`;if(gridStatus&&solvedTriviaCells.size===9)gridStatus.textContent='Immaculate: 9/9.'}
+function lastNameOf(v){const parts=normalizeTriviaAnswer(v).split(' ').filter(Boolean);return parts[parts.length-1]||''}
+function usedPlayers(exceptCell=''){return new Set(Object.entries(solvedTriviaAnswers).filter(([k])=>k!==exceptCell).map(([,v])=>normalizeTriviaAnswer(v)))}
+function saveGridProgress(){try{localStorage.setItem(GRID_STORAGE_KEY,JSON.stringify({answers:solvedTriviaAnswers,revealed:revealedToday}))}catch(e){}}
+function loadGridProgress(){try{const saved=JSON.parse(localStorage.getItem(GRID_STORAGE_KEY)||'{}');Object.entries(saved.answers||{}).forEach(([k,v])=>{if(EALA_GRID.cells[k]&&(EALA_GRID.cells[k]||[]).some(a=>normalizeTriviaAnswer(a)===normalizeTriviaAnswer(v))){solvedTriviaAnswers[k]=v;solvedTriviaCells.add(k)}});revealedToday=Boolean(saved.revealed)}catch(e){}}
+function updateGridScore(){if(gridScore)gridScore.textContent=`${solvedTriviaCells.size}/9`;if(gridStatus&&solvedTriviaCells.size===9)gridStatus.textContent='Immaculate: 9/9. Nine different players used.'}
 function cellClue(key){const m=key.match(/r(\d)c(\d)/);return `${EALA_GRID.rows[+m[1]]} AND ${EALA_GRID.cols[+m[2]]}`}
+function matchingAnswers(answers,rawGuess){const guess=normalizeTriviaAnswer(rawGuess);if(!guess)return[];return answers.filter(a=>normalizeTriviaAnswer(a)===guess||lastNameOf(a)===guess)}
+function hasNineUniqueSolution(grid){const keys=Object.keys(grid.cells).sort((a,b)=>(grid.cells[a]?.length||0)-(grid.cells[b]?.length||0));const used=new Set();function search(i){if(i===keys.length)return true;for(const name of grid.cells[keys[i]]||[]){const n=normalizeTriviaAnswer(name);if(used.has(n))continue;used.add(n);if(search(i+1))return true;used.delete(n)}return false}return search(0)}
+DAILY_PERSON_GRIDS.forEach((g,i)=>{if(!hasNineUniqueSolution(g))console.error(`Daily Eala grid ${i+1} has no nine-player unique solution.`)});
 function renderDailyGrid(){
   document.querySelectorAll('[data-row]').forEach((el,i)=>el.textContent=EALA_GRID.rows[i]);
   document.querySelectorAll('[data-col]').forEach((el,i)=>el.textContent=EALA_GRID.cols[i]);
-  triviaCells.forEach(cell=>{const answers=EALA_GRID.cells[cell.dataset.cell]||[];const q=cell.querySelector('.cell-question'),ans=cell.querySelector('.cell-answer');cell.classList.remove('correct','revealed');if(ans)ans.textContent='';if(q)q.style.display='block';if(solvedTriviaCells.has(cell.dataset.cell)){cell.classList.add('correct');if(q)q.style.display='none';if(ans)ans.textContent=answers[0]}else if(revealedToday){cell.classList.add('revealed');if(q)q.style.display='none';if(ans)ans.textContent=answers[0]}});
+  triviaCells.forEach(cell=>{const answers=EALA_GRID.cells[cell.dataset.cell]||[];const q=cell.querySelector('.cell-question'),ans=cell.querySelector('.cell-answer');cell.classList.remove('correct','revealed');if(ans)ans.textContent='';if(q)q.style.display='block';if(solvedTriviaCells.has(cell.dataset.cell)){cell.classList.add('correct');if(q)q.style.display='none';if(ans)ans.textContent=solvedTriviaAnswers[cell.dataset.cell]||answers[0]}else if(revealedToday){cell.classList.add('revealed');if(q)q.style.display='none';if(ans)ans.textContent=answers[0]}});
   const date=new Date();if(dailyGridMeta)dailyGridMeta.textContent=`Daily Grid · ${date.toLocaleDateString(undefined,{weekday:'long',month:'long',day:'numeric',year:'numeric'})}`;
-  if(gridStatus)gridStatus.textContent=revealedToday?'Answers revealed for today. A new grid appears tomorrow.':'Select a square to play. A new grid appears tomorrow.';updateGridScore();
+  if(gridStatus)gridStatus.textContent=revealedToday?'Answers revealed for today. A new grid appears tomorrow.':'Select a square to play. Last names are accepted; each player can be used only once.';updateGridScore();
 }
 function openTriviaCell(cell){if(!answerDialog||cell.classList.contains('correct')||cell.classList.contains('revealed'))return;activeTriviaCell=cell;answerEra.textContent='PERSON';answerClue.textContent=cellClue(cell.dataset.cell);answerInput.value='';answerFeedback.textContent='';answerFeedback.className='answer-feedback';answerDialog.showModal();requestAnimationFrame(()=>answerInput.focus())}
 triviaCells.forEach(cell=>cell.addEventListener('click',()=>openTriviaCell(cell)));
-if(answerForm)answerForm.addEventListener('submit',event=>{event.preventDefault();if(!activeTriviaCell)return;const answers=EALA_GRID.cells[activeTriviaCell.dataset.cell]||[],guess=normalizeTriviaAnswer(answerInput.value),accepted=answers.map(normalizeTriviaAnswer);if(guess&&accepted.includes(guess)){activeTriviaCell.classList.add('correct');activeTriviaCell.classList.remove('revealed');activeTriviaCell.querySelector('.cell-question').style.display='none';activeTriviaCell.querySelector('.cell-answer').textContent=answers.find(a=>normalizeTriviaAnswer(a)===guess)||answers[0];solvedTriviaCells.add(activeTriviaCell.dataset.cell);saveGridProgress();updateGridScore();answerFeedback.textContent='Correct.';answerFeedback.className='answer-feedback good';setTimeout(()=>answerDialog.close(),450)}else{answerFeedback.textContent='Not quite. Try another person or skip this square.';answerFeedback.className='answer-feedback bad'}});
+if(answerForm)answerForm.addEventListener('submit',event=>{event.preventDefault();if(!activeTriviaCell)return;const cellKey=activeTriviaCell.dataset.cell,answers=EALA_GRID.cells[cellKey]||[],matches=matchingAnswers(answers,answerInput.value);if(matches.length===0){answerFeedback.textContent='Not quite. Try another player or skip this square.';answerFeedback.className='answer-feedback bad';return}const distinctMatches=[...new Map(matches.map(a=>[normalizeTriviaAnswer(a),a])).values()];if(distinctMatches.length>1){answerFeedback.textContent='That last name matches more than one valid player here. Please enter the full name.';answerFeedback.className='answer-feedback bad';return}const matched=distinctMatches[0],norm=normalizeTriviaAnswer(matched),used=usedPlayers(cellKey);if(used.has(norm)){answerFeedback.textContent=`${matched} is correct for this square, but you already used that player. Each player may be used only once.`;answerFeedback.className='answer-feedback bad';return}activeTriviaCell.classList.add('correct');activeTriviaCell.classList.remove('revealed');activeTriviaCell.querySelector('.cell-question').style.display='none';activeTriviaCell.querySelector('.cell-answer').textContent=matched;solvedTriviaCells.add(cellKey);solvedTriviaAnswers[cellKey]=matched;saveGridProgress();updateGridScore();answerFeedback.textContent='Correct.';answerFeedback.className='answer-feedback good';setTimeout(()=>answerDialog.close(),450)});
 if(answerSkip)answerSkip.addEventListener('click',()=>answerDialog.close());
-if(gridReveal)gridReveal.addEventListener('click',()=>{revealedToday=true;triviaCells.forEach(cell=>{if(!cell.classList.contains('correct'))cell.classList.add('revealed');cell.querySelector('.cell-question').style.display='none';cell.querySelector('.cell-answer').textContent=(EALA_GRID.cells[cell.dataset.cell]||[])[0]||''});gridStatus.textContent='Answers revealed for today. A new grid appears tomorrow.';saveGridProgress()});
-if(gridReset)gridReset.addEventListener('click',()=>{solvedTriviaCells.clear();revealedToday=false;try{localStorage.removeItem(GRID_STORAGE_KEY)}catch(e){}renderDailyGrid()});
+if(gridReveal)gridReveal.addEventListener('click',()=>{revealedToday=true;triviaCells.forEach(cell=>{if(!cell.classList.contains('correct'))cell.classList.add('revealed');cell.querySelector('.cell-question').style.display='none';cell.querySelector('.cell-answer').textContent=solvedTriviaAnswers[cell.dataset.cell]||(EALA_GRID.cells[cell.dataset.cell]||[])[0]||''});gridStatus.textContent='Answers revealed for today. A new grid appears tomorrow.';saveGridProgress()});
+if(gridReset)gridReset.addEventListener('click',()=>{solvedTriviaCells.clear();Object.keys(solvedTriviaAnswers).forEach(k=>delete solvedTriviaAnswers[k]);revealedToday=false;try{localStorage.removeItem(GRID_STORAGE_KEY)}catch(e){}renderDailyGrid()});
 loadGridProgress();renderDailyGrid();
