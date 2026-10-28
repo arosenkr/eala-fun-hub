@@ -60,3 +60,10 @@ footer{background:var(--green-dark);color:#fff;padding:24px 0;border-top:4px sol
 .daily-trivia-reveal{font-size:21px;padding:11px 23px}
 .header-emblem{background:transparent!important;box-shadow:none!important;border:0!important;border-radius:0!important;padding:0!important;filter:none!important}
 @media(max-width:760px){.daily-trivia-copy h1{font-size:28px}.daily-trivia-question{font-size:19px}.daily-trivia-reveal{font-size:18px;padding:10px 19px}}
+
+/* v24: thin flag outline, matte tennis-ball accent, Facebook social row */
+.header-emblem{border:1px solid #111!important;border-radius:4px!important;box-sizing:border-box}
+.brand-block strong{position:relative;display:inline-block;align-self:flex-start}
+.brand-block strong::after{content:"";position:absolute;width:.43em;height:.43em;right:-.18em;bottom:.02em;border-radius:50%;background:#d8df25;border:1px solid #9da619;box-shadow:none;z-index:2}
+.brand-block strong::before{content:"";position:absolute;width:.31em;height:.16em;right:-.13em;bottom:.12em;border-top:2px solid rgba(255,255,255,.78);border-radius:50%;transform:rotate(-35deg);z-index:3}
+@media(max-width:760px){.brand-block strong::after{width:.40em;height:.40em}.brand-block strong::before{width:.29em;height:.14em;border-top-width:1.5px}}
