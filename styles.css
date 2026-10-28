@@ -31,3 +31,25 @@ footer{background:var(--green-dark);color:#fff;padding:24px 0;border-top:4px sol
 
 @media(max-width:1020px){.nav-wrap{grid-template-columns:auto auto 1fr}.header-emblem{display:none}.site-header nav{gap:18px}.dashboard-grid{grid-template-columns:1fr 1.45fr}.social-panel{grid-column:1/-1}.social-panel .simple-link-list{display:grid;grid-template-columns:1fr 1fr;column-gap:24px}.trivia-card{grid-template-columns:230px 1fr}.eala-saurus{width:205px;height:205px}}
 @media(max-width:760px){.nav-wrap{display:flex;min-height:74px;gap:12px;overflow:hidden}.home-link{font-size:16px;padding-right:12px}.brand-block{display:none}.site-header nav{overflow-x:auto;white-space:nowrap;gap:14px;scrollbar-width:none}.site-header nav::-webkit-scrollbar{display:none}.site-header nav a{font-size:13px;flex:0 0 auto}.trivia-card{grid-template-columns:1fr;gap:14px;text-align:left;padding:20px}.mascot-column{border-right:0;border-bottom:2px solid #86b495;padding:0 0 14px}.eala-saurus{width:150px;height:150px}.daily-trivia-copy h1{font-size:32px}.daily-trivia-question{font-size:22px}.daily-trivia-reveal{font-size:22px}.dashboard-grid{grid-template-columns:1fr}.social-panel{grid-column:auto}.social-panel .simple-link-list{display:flex}.about-grid{grid-template-columns:1fr}.footer-grid{flex-direction:column;align-items:flex-start}}
+
+/* v22 split header and social icons */
+.site-header{position:relative;top:auto;background:transparent;color:inherit;box-shadow:none}
+.top-nav-band{background:linear-gradient(90deg,#0a4828,#0f5f35 55%,#155e38);color:#fff;box-shadow:0 3px 14px rgba(9,63,36,.15)}
+.nav-wrap{min-height:58px;display:flex;align-items:center;justify-content:space-between;gap:24px}
+.home-link{font-weight:900;font-size:19px;text-decoration:none;padding-right:0;border-right:0}
+.site-header nav{display:flex;justify-content:flex-end;gap:30px}
+.site-header nav a{font-size:16px;font-weight:800;text-decoration:underline;text-underline-offset:5px;text-decoration-thickness:1px}
+.site-header nav a:hover{color:#d8f0df}
+.brand-banner{background:#fff;border-bottom:1px solid #dce8df;box-shadow:0 8px 22px rgba(9,63,36,.06)}
+.brand-banner-inner{min-height:142px;display:flex;align-items:center;justify-content:space-between;gap:32px;padding-top:18px;padding-bottom:18px}
+.brand-block{display:flex;flex-direction:column;line-height:1.02}
+.brand-block strong{color:var(--green-dark);font-size:clamp(42px,5vw,68px);font-weight:900;letter-spacing:-.045em}
+.brand-block span{color:#344d3d;font-size:clamp(18px,2vw,27px);font-style:italic;margin-top:10px}
+.header-emblem{width:220px;height:92px;object-fit:contain;display:block;flex:0 0 auto}
+.social-link-list .social-row{display:flex;align-items:center;gap:11px}
+.social-link-list .social-row img{width:27px;height:27px;flex:0 0 27px;display:block}
+.social-link-list .social-row span{display:inline-block}
+#resources,#news,#social,#about,#trivia{scroll-margin-top:20px}
+@media(max-width:1020px){.header-emblem{display:block;width:184px;height:78px}.brand-banner-inner{min-height:124px}.site-header nav{gap:22px}}
+@media(max-width:760px){.nav-wrap{min-height:56px;display:flex;gap:14px;overflow:hidden}.home-link{font-size:15px}.site-header nav{overflow-x:auto;white-space:nowrap;gap:15px;scrollbar-width:none}.site-header nav::-webkit-scrollbar{display:none}.site-header nav a{font-size:13px;flex:0 0 auto}.brand-banner-inner{min-height:106px;gap:14px;padding-top:14px;padding-bottom:14px}.brand-block{display:flex}.brand-block strong{font-size:34px}.brand-block span{font-size:16px;margin-top:6px}.header-emblem{display:block;width:120px;height:58px}.social-link-list .social-row img{width:25px;height:25px;flex-basis:25px}}
+@media(max-width:470px){.brand-banner-inner{align-items:center}.brand-block strong{font-size:29px}.brand-block span{font-size:14px}.header-emblem{width:94px;height:46px}.site-header nav{gap:12px}.site-header nav a{font-size:12px}}
